@@ -7,7 +7,7 @@ public class PlayerInputs : MonoBehaviour
     [SerializeField] private float jumpH = 3f;
     [SerializeField] LayerMask groundLayer;
     [SerializeField] Transform groundCheck;
-    [SerializeField] private GameObject pauseMenu;
+    public GameObject pauseMenu;
     private float horizontal;
     private bool isPaused = false;
     private void Start()
@@ -40,13 +40,19 @@ public class PlayerInputs : MonoBehaviour
 
     public void PauseMenu(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (context.performed && pauseMenu.activeSelf)
         {
-            isPaused = !isPaused;
+            
+            pauseMenu.SetActive(false);
 
-            pauseMenu.SetActive(isPaused);
+            Time.timeScale = 1f;
+        }
 
-            Time.timeScale = isPaused ? 0f : 1f;
+        else if (context.performed && pauseMenu.activeSelf == false)
+        {
+            pauseMenu.SetActive(true);
+
+            Time.timeScale = 0f;
         }
     }
 }
