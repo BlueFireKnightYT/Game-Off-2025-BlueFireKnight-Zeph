@@ -11,7 +11,7 @@ public class WaterRising : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         rb.linearVelocity = new Vector2(rb.linearVelocity.x, 1f);
     }
