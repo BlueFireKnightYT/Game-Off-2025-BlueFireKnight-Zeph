@@ -1,0 +1,41 @@
+<PixlyAnimation version="1.5">
+	<Info sheetWidth="96" sheetHeight="96" totalCollumns="3" totalRows="3" frameWidth="32" frameHeight="32" layerCount="1"/>
+	<Frames length="9">
+		<Frame duration="100" visible="true">
+			<Region x="0" y="0" width="32" height="32"/>
+			<Index linear="0" collumn="0" row="0"/>
+		</Frame>
+		<Frame duration="100" visible="true">
+			<Region x="32" y="0" width="32" height="32"/>
+			<Index linear="1" collumn="1" row="0"/>
+		</Frame>
+		<Frame duration="100" visible="true">
+			<Region x="64" y="0" width="32" height="32"/>
+			<Index linear="2" collumn="2" row="0"/>
+		</Frame>
+		<Frame duration="100" visible="true">
+			<Region x="0" y="32" width="32" height="32"/>
+			<Index linear="3" collumn="0" row="1"/>
+		</Frame>
+		<Frame duration="100" visible="true">
+			<Region x="32" y="32" width="32" height="32"/>
+			<Index linear="4" collumn="1" row="1"/>
+		</Frame>
+		<Frame duration="100" visible="true">
+			<Region x="64" y="32" width="32" height="32"/>
+			<Index linear="5" collumn="2" row="1"/>
+		</Frame>
+		<Frame duration="100" visible="true">
+			<Region x="0" y="64" width="32" height="32"/>
+			<Index linear="6" collumn="0" row="2"/>
+		</Frame>
+		<Frame duration="100" visible="true">
+			<Region x="32" y="64" width="32" height="32"/>
+			<Index linear="7" collumn="1" row="2"/>
+		</Frame>
+		<Frame duration="100" visible="true">
+			<Region x="64" y="64" width="32" height="32"/>
+			<Index linear="8" collumn="2" row="2"/>
+		</Frame>
+	</Frames>
+</PixlyAnimation>
