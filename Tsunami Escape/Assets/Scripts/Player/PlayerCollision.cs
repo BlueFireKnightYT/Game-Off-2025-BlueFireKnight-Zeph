@@ -23,10 +23,10 @@ public class PlayerCollision : MonoBehaviour
             Debug.Log("You Died");
             SceneManager.LoadScene("DefeatScene");
         }
-        if (other.CompareTag("Anti-Grav Potion"))
+        if (other.CompareTag("Anti-Gravity Potion"))
         {
             rb.gravityScale = AntiGravity;
-            Invoke("ApplyGrav", 2f);
+            Invoke("ApplyGrav", 5f);
         }
     }
 
