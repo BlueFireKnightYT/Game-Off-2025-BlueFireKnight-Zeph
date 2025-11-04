@@ -667,10 +667,10 @@ MonoBehaviour:
   mainCamera: {fileID: 1882866958}
   platformPrefab: {fileID: 143991483369174945, guid: 72ff83866bfcec0449dc51c3c3253eda, type: 3}
   LevelAdvancer: {fileID: 1239608867}
-  minYGap: 1
-  maxYGap: 3
-  minXGap: 1
-  maxXGap: 3
+  minYGap: 1.5
+  maxYGap: 2
+  minXGap: 1.5
+  maxXGap: 2
   PlatformPerSpawn: 25
   widthLimit: 25
   heightLimit: 15
