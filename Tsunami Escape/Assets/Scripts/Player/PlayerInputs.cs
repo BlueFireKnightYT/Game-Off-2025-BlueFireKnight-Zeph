@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Animations;
 public class PlayerInputs : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D rb;
@@ -7,6 +8,8 @@ public class PlayerInputs : MonoBehaviour
     [SerializeField] private float jumpH = 3f;
     [SerializeField] LayerMask groundLayer;
     [SerializeField] Transform groundCheck;
+    [SerializeField] Animator animator;
+    [SerializeField] SpriteRenderer spriterenderer;
     public GameObject pauseMenu;
     private float horizontal;
     private bool isPaused = false;
@@ -14,9 +17,32 @@ public class PlayerInputs : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
     }
+
+    private void Update()
+    {
+        if (rb.linearVelocity.x != 0f)
+        {
+            animator.SetBool("isWalking", true);
+            
+        }
+        else
+        {
+            animator.SetBool("isWalking", false);
+        }
+    }
+
     private void FixedUpdate()
     {
         rb.linearVelocity = new Vector2(horizontal * speed, rb.linearVelocity.y);
+
+        if (rb.linearVelocity.x > 0)
+        {
+            spriterenderer.flipX = true;
+        }
+        else if (rb.linearVelocity.x < 0)
+        {
+            spriterenderer.flipX = false;
+        }
     }
 
     public void Move(InputAction.CallbackContext context)
@@ -30,6 +56,7 @@ public class PlayerInputs : MonoBehaviour
         {
             Debug.Log("jump");
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpH);
+            animator.SetBool("isWalking", false);
         }
     }
 
