@@ -11,10 +11,13 @@ public class PlayerInputs : MonoBehaviour
     [SerializeField] Animator animator;
     [SerializeField] SpriteRenderer spriterenderer;
     public GameObject pauseMenu;
+    public bool holdingDown;
+    private PlayerCollision playerCollision;
     private float horizontal;
     private bool isPaused = false;
     private void Start()
     {
+        holdingDown = false;
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -33,6 +36,7 @@ public class PlayerInputs : MonoBehaviour
 
     private void FixedUpdate()
     {
+
         rb.linearVelocity = new Vector2(horizontal * speed, rb.linearVelocity.y);
 
         if (rb.linearVelocity.x > 0)
@@ -54,9 +58,22 @@ public class PlayerInputs : MonoBehaviour
     {
         if (context.performed && IsGrounded())
         {
-            Debug.Log("jump");
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpH);
             animator.SetBool("isWalking", false);
+        }
+    }
+
+    public void MoveDown(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            rb.gravityScale = rb.gravityScale + 2;
+            holdingDown = true;
+        }
+        if (context.canceled)
+        {
+            holdingDown = false;
+            rb.gravityScale = rb.gravityScale - 2;
         }
     }
 
