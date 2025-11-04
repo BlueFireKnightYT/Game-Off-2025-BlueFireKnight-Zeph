@@ -9,6 +9,7 @@ public class PlatformSpawning : MonoBehaviour
     public Transform Player;
     public Camera mainCamera;
     public GameObject platformPrefab;
+    public GameObject antiGravPrefab; // prefab for the anti-grav potion
     public Transform LevelAdvancer;
     [Header("Spawn Settings")]
     public float minYGap;
@@ -131,6 +132,38 @@ public class PlatformSpawning : MonoBehaviour
                     currentY = candidateY;
                     currentX = candidateX;
                     placed = true;
+
+                    // 1-in-50 chance to spawn an anti-grav potion on top of this platform
+                    if (antiGravPrefab != null && Random.Range(0, 50) == 0)
+                    {
+                        // determine potion vertical offset from platform top
+                        float potionOffset = 0.15f; // fallback offset
+
+                        // get platform instance bounds
+                        float platformHalfHeight = 0.5f;
+                        var platCol = newplat.GetComponent<Collider2D>();
+                        if (platCol != null) platformHalfHeight = platCol.bounds.extents.y;
+                        else
+                        {
+                            var platR = newplat.GetComponent<Renderer>();
+                            if (platR != null) platformHalfHeight = platR.bounds.extents.y;
+                        }
+
+                        // get potion prefab half height
+                        float potionHalfHeight = 0.25f;
+                        var potCol = antiGravPrefab.GetComponent<Collider2D>();
+                        if (potCol != null) potionHalfHeight = potCol.bounds.extents.y;
+                        else
+                        {
+                            var potR = antiGravPrefab.GetComponent<Renderer>();
+                            if (potR != null) potionHalfHeight = potR.bounds.extents.y;
+                        }
+
+                        potionOffset = platformHalfHeight + potionHalfHeight + 0.05f;
+
+                        Vector3 potionPos = newplat.transform.position + Vector3.up * potionOffset;
+                        Instantiate(antiGravPrefab, potionPos, Quaternion.identity);
+                    }
                 }
             }
 
