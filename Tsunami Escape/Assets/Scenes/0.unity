@@ -372,6 +372,36 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ec5f7181a3cb6084e87ad20b227efa39, type: 3}
+--- !u!1 &403625130 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5635616160961321889, guid: 9b53c74de79e5444c95d348d3f3fbfb5, type: 3}
+  m_PrefabInstance: {fileID: 3059346848550127714}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &403625133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 403625130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef059f4e709d2504ab9077ff015f923d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlatformSpawning
+  Player: {fileID: 438346982}
+  mainCamera: {fileID: 1882866958}
+  platformPrefab: {fileID: 143991483369174945, guid: 72ff83866bfcec0449dc51c3c3253eda, type: 3}
+  LevelAdvancer: {fileID: 1239608867}
+  minYGap: 1
+  maxYGap: 3
+  minXGap: 1
+  maxXGap: 3
+  PlatformPerSpawn: 25
+  widthLimit: 25
+  heightLimit: 15
+  Levelwidth: 25
+  Buffer: 2
 --- !u!4 &438346982 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2630292281368456101, guid: 34149b8cd3b8b664d90bdf4cbcb9ac42, type: 3}
@@ -1302,6 +1332,51 @@ Transform:
   - {fileID: 1694342593}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1239608865
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1239608867}
+  - component: {fileID: 1239608866}
+  m_Layer: 0
+  m_Name: LevelAdvancer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1239608866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1239608865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32ddc1ff0b16ab442b4bb4a18c3083b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LevelAdvancer
+  Player: {fileID: 438346982}
+--- !u!4 &1239608867
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1239608865}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.48064, y: -1.13403, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &1381920973 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4991372086392129573, guid: ec5f7181a3cb6084e87ad20b227efa39, type: 3}
@@ -1997,10 +2072,14 @@ PrefabInstance:
       propertyPath: mainCamera
       value: 
       objectReference: {fileID: 1882866958}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8562245701084424625, guid: 9b53c74de79e5444c95d348d3f3fbfb5, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5635616160961321889, guid: 9b53c74de79e5444c95d348d3f3fbfb5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 403625133}
   m_SourcePrefab: {fileID: 100100000, guid: 9b53c74de79e5444c95d348d3f3fbfb5, type: 3}
 --- !u!1001 &7177485570837813971
 PrefabInstance:
@@ -2055,6 +2134,14 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 6991705509684775474, guid: 34149b8cd3b8b664d90bdf4cbcb9ac42, type: 3}
+      propertyPath: jumpH
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6991705509684775474, guid: 34149b8cd3b8b664d90bdf4cbcb9ac42, type: 3}
+      propertyPath: speed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6991705509684775474, guid: 34149b8cd3b8b664d90bdf4cbcb9ac42, type: 3}
       propertyPath: pauseMenu
       value: 
       objectReference: {fileID: 640064526}
@@ -2078,3 +2165,4 @@ SceneRoots:
   - {fileID: 880710751}
   - {fileID: 903240230}
   - {fileID: 3059346848550127714}
+  - {fileID: 1239608867}
