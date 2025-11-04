@@ -1461,6 +1461,7 @@ Transform:
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 --- !u!1 &1280263834
 GameObject:
   m_ObjectHideFlags: 0
@@ -1694,6 +1695,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   audiosource: {fileID: 1381279333}
   footstep1: {fileID: 8300000, guid: 5f1e19824d544f248b3afd649844ce6b, type: 3}
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 --- !u!224 &1381920973 stripped
@@ -2432,6 +2435,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     - target: {fileID: 2630292281368456101, guid: 34149b8cd3b8b664d90bdf4cbcb9ac42, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
@@ -2456,6 +2460,11 @@ PrefabInstance:
       propertyPath: m_GravityScale
       value: 2.5
 >>>>>>> Stashed changes
+=======
+    - target: {fileID: 3515672131343683218, guid: 34149b8cd3b8b664d90bdf4cbcb9ac42, type: 3}
+      propertyPath: m_GravityScale
+      value: 2.5
+>>>>>>> Stashed changes
       objectReference: {fileID: 0}
     - target: {fileID: 5957365941352008145, guid: 34149b8cd3b8b664d90bdf4cbcb9ac42, type: 3}
       propertyPath: m_Name
@@ -2463,9 +2472,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6991705509684775474, guid: 34149b8cd3b8b664d90bdf4cbcb9ac42, type: 3}
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
       propertyPath: animator
       value: 
       objectReference: {fileID: 1381279332}
+=======
+      propertyPath: jumpH
+      value: 25
+      objectReference: {fileID: 0}
+>>>>>>> Stashed changes
 =======
       propertyPath: jumpH
       value: 25
