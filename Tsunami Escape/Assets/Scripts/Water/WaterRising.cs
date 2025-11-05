@@ -3,7 +3,8 @@ using UnityEngine;
 public class WaterRising : MonoBehaviour
 {
     [SerializeField] Rigidbody2D rb;
-    [SerializeField] float speed;
+    public float speed = 3f;
+    public PlayerCollision playerCollision;
     Animator animator;
     
 

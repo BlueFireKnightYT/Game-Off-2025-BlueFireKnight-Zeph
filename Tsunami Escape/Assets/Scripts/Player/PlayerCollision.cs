@@ -9,18 +9,20 @@ public class PlayerCollision : MonoBehaviour
     private PlayerInputs pi;
     public float AntiGravity;
     public float NormalGravity;
+    public WaterRising waterRising;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         pi = GetComponent<PlayerInputs>();
+        if (waterRising == null) waterRising = Object.FindAnyObjectByType<WaterRising>();
+
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Water"))
         {
-            Debug.Log("You Died");
             SceneManager.LoadScene("DefeatScene");
         }
         if (other.CompareTag("Anti-Gravity Potion"))
@@ -28,18 +30,26 @@ public class PlayerCollision : MonoBehaviour
             rb.gravityScale = AntiGravity;
             Invoke("ApplyGrav", 5f);
         }
+        if (other.CompareTag("Slow-Time Potion"))
+        { 
+            waterRising.speed = waterRising.speed / 2f;
+            Invoke("ResumeWater", 10f);
+        }
+    }
+
+    private void ResumeWater()
+    {
+        waterRising.speed = waterRising.speed * 2;
     }
 
     private void ApplyGrav()
     { 
         if (pi.holdingDown == true)
         {
-            Debug.Log("True");
             rb.gravityScale = NormalGravity + 2;
         }
         else if(pi.holdingDown == false)
         {
-            Debug.Log("False");
             rb.gravityScale = NormalGravity;
         }
     }
