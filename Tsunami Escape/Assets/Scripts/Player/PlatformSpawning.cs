@@ -10,6 +10,7 @@ public class PlatformSpawning : MonoBehaviour
     public Camera mainCamera;
     public GameObject platformPrefab;
     public GameObject antiGravPrefab; // prefab for the anti-grav potion
+    public GameObject slowMoPrefab;   // prefab for the slow-time potion
     public Transform LevelAdvancer;
     [Header("Spawn Settings")]
     public float minYGap;
@@ -133,36 +134,42 @@ public class PlatformSpawning : MonoBehaviour
                     currentX = candidateX;
                     placed = true;
 
-                    // 1-in-50 chance to spawn an anti-grav potion on top of this platform
-                    if (antiGravPrefab != null && Random.Range(0, 50) == 0)
+                    // 1-in-50 chance to spawn a potion on top of this platform
+                    if (Random.Range(0, 50) == 0)
                     {
-                        // determine potion vertical offset from platform top
-                        float potionOffset = 0.15f; // fallback offset
+                        // pick potion type randomly: 50% anti-grav, 50% slow-time
+                        GameObject chosenPotionPrefab = (Random.value < 0.5f) ? antiGravPrefab : slowMoPrefab;
+                        string chosenTag = (chosenPotionPrefab == antiGravPrefab) ? "Anti-Gravity Potion" : "Slow-Time Potion";
 
-                        // get platform instance bounds
-                        float platformHalfHeight = 0.5f;
-                        var platCol = newplat.GetComponent<Collider2D>();
-                        if (platCol != null) platformHalfHeight = platCol.bounds.extents.y;
-                        else
+                        if (chosenPotionPrefab != null)
                         {
-                            var platR = newplat.GetComponent<Renderer>();
-                            if (platR != null) platformHalfHeight = platR.bounds.extents.y;
+                            // determine potion vertical offset from platform top
+                            float platformHalfHeight = 0.5f;
+                            var platCol = newplat.GetComponent<Collider2D>();
+                            if (platCol != null) platformHalfHeight = platCol.bounds.extents.y;
+                            else
+                            {
+                                var platR = newplat.GetComponent<Renderer>();
+                                if (platR != null) platformHalfHeight = platR.bounds.extents.y;
+                            }
+
+                            // get potion prefab half height
+                            float potionHalfHeight = 0.25f;
+                            var potCol = chosenPotionPrefab.GetComponent<Collider2D>();
+                            if (potCol != null) potionHalfHeight = potCol.bounds.extents.y;
+                            else
+                            {
+                                var potR = chosenPotionPrefab.GetComponent<Renderer>();
+                                if (potR != null) potionHalfHeight = potR.bounds.extents.y;
+                            }
+
+                            float potionOffset = platformHalfHeight + potionHalfHeight + 0.05f;
+                            Vector3 potionPos = newplat.transform.position + Vector3.up * potionOffset;
+                            GameObject potionInstance = Instantiate(chosenPotionPrefab, potionPos, Quaternion.identity);
+
+                            // ensure the instantiated potion has the expected tag so PlayerCollision detects it
+                            potionInstance.tag = chosenTag;
                         }
-
-                        // get potion prefab half height
-                        float potionHalfHeight = 0.25f;
-                        var potCol = antiGravPrefab.GetComponent<Collider2D>();
-                        if (potCol != null) potionHalfHeight = potCol.bounds.extents.y;
-                        else
-                        {
-                            var potR = antiGravPrefab.GetComponent<Renderer>();
-                            if (potR != null) potionHalfHeight = potR.bounds.extents.y;
-                        }
-
-                        potionOffset = platformHalfHeight + potionHalfHeight + 0.05f;
-
-                        Vector3 potionPos = newplat.transform.position + Vector3.up * potionOffset;
-                        Instantiate(antiGravPrefab, potionPos, Quaternion.identity);
                     }
                 }
             }

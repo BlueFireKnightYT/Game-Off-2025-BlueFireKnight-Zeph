@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -29,11 +30,13 @@ public class PlayerCollision : MonoBehaviour
         {
             rb.gravityScale = AntiGravity;
             Invoke("ApplyGrav", 5f);
+            Destroy(other.gameObject);
         }
         if (other.CompareTag("Slow-Time Potion"))
         { 
             waterRising.speed = waterRising.speed / 2f;
             Invoke("ResumeWater", 10f);
+            Destroy(other.gameObject);
         }
     }
 

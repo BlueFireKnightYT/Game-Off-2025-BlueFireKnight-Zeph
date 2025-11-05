@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3504420179439436153}
   - component: {fileID: 7206188199859714367}
   - component: {fileID: 8980282720081698921}
-  - component: {fileID: 3310316091521317037}
+  - component: {fileID: 3588562942586232844}
   m_Layer: 0
   m_Name: SlowTimePot
   m_TagString: Slow-Time Potion
@@ -114,7 +114,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!58 &3310316091521317037
+--- !u!58 &3588562942586232844
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -148,5 +148,5 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: -0.032811522}
-  m_Radius: 0.28281152
+  m_Offset: {x: 0, y: -0.034660816}
+  m_Radius: 0.28466082
