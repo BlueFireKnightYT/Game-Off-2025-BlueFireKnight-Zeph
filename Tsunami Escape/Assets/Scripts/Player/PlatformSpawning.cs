@@ -154,7 +154,7 @@ public class PlatformSpawning : MonoBehaviour
                             }
 
                             // get potion prefab half height
-                            float potionHalfHeight = 0.25f;
+                            float potionHalfHeight = 0.01f;
                             var potCol = chosenPotionPrefab.GetComponent<Collider2D>();
                             if (potCol != null) potionHalfHeight = potCol.bounds.extents.y;
                             else

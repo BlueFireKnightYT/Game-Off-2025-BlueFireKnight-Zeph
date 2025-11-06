@@ -911,6 +911,7 @@ GameObject:
   - component: {fileID: 243098004}
   - component: {fileID: 243098006}
   - component: {fileID: 243098005}
+  - component: {fileID: 243098007}
   m_Layer: 0
   m_Name: AntiGravTimer
   m_TagString: Untagged
@@ -927,8 +928,8 @@ Transform:
   m_GameObject: {fileID: 243098003}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 23.17, y: -12.07, z: 0}
-  m_LocalScale: {x: 3.5511713, y: 3.5511713, z: 3.5511713}
+  m_LocalPosition: {x: 21.366, y: -10.266, z: 0}
+  m_LocalScale: {x: 7.1591616, y: 7.1591616, z: 7.1591616}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2108655508}
@@ -962,7 +963,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 243098003}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -1013,6 +1014,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &243098007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 243098003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8151279a1556c94fb9f45478fa3ccdf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Countdown
 --- !u!4 &403625134 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2965749601285251411, guid: 9b53c74de79e5444c95d348d3f3fbfb5, type: 3}
@@ -2926,7 +2939,7 @@ Transform:
   m_GameObject: {fileID: 1239608865}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.4806366, y: -1.1340332, z: 0}
+  m_LocalPosition: {x: -2.4806366, y: -3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4485,19 +4498,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2965749601285251411, guid: 9b53c74de79e5444c95d348d3f3fbfb5, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.99965733
       objectReference: {fileID: 0}
     - target: {fileID: 2965749601285251411, guid: 9b53c74de79e5444c95d348d3f3fbfb5, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2965749601285251411, guid: 9b53c74de79e5444c95d348d3f3fbfb5, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: -0.026176924
       objectReference: {fileID: 0}
     - target: {fileID: 2965749601285251411, guid: 9b53c74de79e5444c95d348d3f3fbfb5, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2965749601285251411, guid: 9b53c74de79e5444c95d348d3f3fbfb5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -4505,7 +4518,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2965749601285251411, guid: 9b53c74de79e5444c95d348d3f3fbfb5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: -3
       objectReference: {fileID: 0}
     - target: {fileID: 2965749601285251411, guid: 9b53c74de79e5444c95d348d3f3fbfb5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -4516,6 +4529,22 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 438346982}
     - target: {fileID: 4074775104747112952, guid: 9b53c74de79e5444c95d348d3f3fbfb5, type: 3}
+      propertyPath: maxXGap
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4074775104747112952, guid: 9b53c74de79e5444c95d348d3f3fbfb5, type: 3}
+      propertyPath: maxYGap
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4074775104747112952, guid: 9b53c74de79e5444c95d348d3f3fbfb5, type: 3}
+      propertyPath: minXGap
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4074775104747112952, guid: 9b53c74de79e5444c95d348d3f3fbfb5, type: 3}
+      propertyPath: minYGap
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4074775104747112952, guid: 9b53c74de79e5444c95d348d3f3fbfb5, type: 3}
       propertyPath: mainCamera
       value: 
       objectReference: {fileID: 1882866958}
@@ -4523,6 +4552,18 @@ PrefabInstance:
       propertyPath: LevelAdvancer
       value: 
       objectReference: {fileID: 1239608867}
+    - target: {fileID: 4074775104747112952, guid: 9b53c74de79e5444c95d348d3f3fbfb5, type: 3}
+      propertyPath: playerMaxJump
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4074775104747112952, guid: 9b53c74de79e5444c95d348d3f3fbfb5, type: 3}
+      propertyPath: PlatformPerSpawn
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 4074775104747112952, guid: 9b53c74de79e5444c95d348d3f3fbfb5, type: 3}
+      propertyPath: playerMaxHorizontal
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5635616160961321889, guid: 9b53c74de79e5444c95d348d3f3fbfb5, type: 3}
       propertyPath: m_Name
       value: Platform Spawner
@@ -4581,8 +4622,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4785048582835653809, guid: 34149b8cd3b8b664d90bdf4cbcb9ac42, type: 3}
+      propertyPath: countdown
+      value: 
+      objectReference: {fileID: 243098007}
+    - target: {fileID: 4785048582835653809, guid: 34149b8cd3b8b664d90bdf4cbcb9ac42, type: 3}
       propertyPath: AntiGravity
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4785048582835653809, guid: 34149b8cd3b8b664d90bdf4cbcb9ac42, type: 3}
       propertyPath: waterRising
@@ -4590,11 +4635,15 @@ PrefabInstance:
       objectReference: {fileID: 1000014209}
     - target: {fileID: 4785048582835653809, guid: 34149b8cd3b8b664d90bdf4cbcb9ac42, type: 3}
       propertyPath: NormalGravity
-      value: 2.5
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5957365941352008145, guid: 34149b8cd3b8b664d90bdf4cbcb9ac42, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 6991705509684775474, guid: 34149b8cd3b8b664d90bdf4cbcb9ac42, type: 3}
+      propertyPath: jumpH
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 6991705509684775474, guid: 34149b8cd3b8b664d90bdf4cbcb9ac42, type: 3}
       propertyPath: pauseMenu
