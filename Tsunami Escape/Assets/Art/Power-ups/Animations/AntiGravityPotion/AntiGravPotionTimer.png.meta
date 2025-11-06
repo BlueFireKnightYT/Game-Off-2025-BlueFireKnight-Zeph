@@ -69,7 +69,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 64
+  spritePixelsToUnits: 400
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -107,6 +107,32 @@ TextureImporter:
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -191,8 +217,8 @@ TextureImporter:
         y: 0
         width: 400
         height: 400
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.49930695, y: 0.5038109}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -209,13 +235,13 @@ TextureImporter:
       name: AntiGravPotionTimer_4
       rect:
         serializedVersion: 2
-        x: 1600
+        x: 1599
         y: 0
-        width: 400
+        width: 401
         height: 400
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      alignment: 9
+      pivot: {x: 0.5006314, y: 0.50505}
+      border: {x: 0, y: 0, z: 2, w: 0}
       customData: 
       outline: []
       physicsShape: []
@@ -235,9 +261,9 @@ TextureImporter:
         y: 0
         width: 400
         height: 400
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      alignment: 9
+      pivot: {x: 0.5006317, y: 0.50000006}
+      border: {x: 0, y: 0, z: 2, w: 0}
       customData: 
       outline: []
       physicsShape: []
@@ -257,9 +283,9 @@ TextureImporter:
         y: 0
         width: 400
         height: 400
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      alignment: 9
+      pivot: {x: 0.50120056, y: 0.505253}
+      border: {x: 0, y: 0, z: 2, w: 0}
       customData: 
       outline: []
       physicsShape: []
@@ -279,8 +305,8 @@ TextureImporter:
         y: 0
         width: 400
         height: 400
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.500733, y: 0.5065155}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
