@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2965749601285251411}
-  - component: {fileID: 8562245701084424625}
+  - component: {fileID: 4074775104747112952}
   m_Layer: 0
   m_Name: Platform Spawner
   m_TagString: Untagged
@@ -25,14 +25,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5635616160961321889}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8562245701084424625
+--- !u!114 &4074775104747112952
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,13 +41,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 5635616160961321889}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad77f9430fe07dc499a5ef05278102e3, type: 3}
+  m_Script: {fileID: 11500000, guid: ef059f4e709d2504ab9077ff015f923d, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: '::'
-  platformPrefab: {fileID: 143991483369174945, guid: 72ff83866bfcec0449dc51c3c3253eda, type: 3}
-  minYGap: 10
-  maxYGap: 20
-  levelWidth: 30
-  initialPlatforms: 10
-  player: {fileID: 0}
+  m_EditorClassIdentifier: Assembly-CSharp::PlatformSpawning
+  Player: {fileID: 0}
   mainCamera: {fileID: 0}
+  platformPrefab: {fileID: 143991483369174945, guid: 72ff83866bfcec0449dc51c3c3253eda, type: 3}
+  antiGravPrefab: {fileID: 5040335791888461365, guid: 49bc159e413052941a2e2bd0f12498d7, type: 3}
+  slowMoPrefab: {fileID: 8868582670280054708, guid: 785df95337c91f04a8f4fa89c93432ba, type: 3}
+  LevelAdvancer: {fileID: 0}
+  minYGap: 1.5
+  maxYGap: 2
+  minXGap: 1.5
+  maxXGap: 2
+  PlatformPerSpawn: 25
+  widthLimit: 25
+  heightLimit: 15
+  Levelwidth: 25
+  Buffer: 2
