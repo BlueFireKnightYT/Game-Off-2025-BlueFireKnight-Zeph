@@ -11,13 +11,14 @@ public class PlayerCollision : MonoBehaviour
     public float AntiGravity;
     public float NormalGravity;
     public WaterRising waterRising;
+    public Countdown countdown;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         pi = GetComponent<PlayerInputs>();
         if (waterRising == null) waterRising = Object.FindAnyObjectByType<WaterRising>();
-
+        if (countdown == null) countdown = Object.FindAnyObjectByType<Countdown>();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -31,6 +32,7 @@ public class PlayerCollision : MonoBehaviour
             rb.gravityScale = AntiGravity;
             Invoke("ApplyGrav", 5f);
             Destroy(other.gameObject);
+            
         }
         if (other.CompareTag("Slow-Time Potion"))
         { 
