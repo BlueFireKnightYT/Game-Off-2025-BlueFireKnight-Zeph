@@ -14,7 +14,6 @@ public class PlayerInputs : MonoBehaviour
     public bool holdingDown;
     private PlayerCollision playerCollision;
     private float horizontal;
-    private bool isPaused = false;
     private void Start()
     {
         holdingDown = false;

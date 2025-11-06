@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: ce14802bc35d50b4db8a1dd90ecec581
+guid: 9d2d291f5b6761443aa88dd37a554600
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8542322424572224999
-    second: Skybox4_0
+      213: -5668727420889051318
+    second: Skybox6_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,7 +126,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Skybox4_0
+      name: Skybox6_0
       rect:
         serializedVersion: 2
         x: 0
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 91ad4869303937980800000000000000
-      internalID: -8542322424572224999
+      spriteID: a4f4465e172a451b0800000000000000
+      internalID: -5668727420889051318
       vertices: []
       indices: 
       edges: []
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Skybox4_0: -8542322424572224999
+      Skybox6_0: -5668727420889051318
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
