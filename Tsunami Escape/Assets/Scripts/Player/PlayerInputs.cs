@@ -67,7 +67,10 @@ public class PlayerInputs : MonoBehaviour
             animator.SetBool("Jumping", true);
         }
     }
-
+    private bool IsGrounded()
+    {
+        return Physics2D.OverlapCapsule(groundCheck.position, new Vector2(1f, 0.5f), CapsuleDirection2D.Horizontal, 0, groundLayer);
+    }
     public void MoveDown(InputAction.CallbackContext context)
     {
         if (context.performed)
@@ -80,11 +83,6 @@ public class PlayerInputs : MonoBehaviour
             holdingDown = false;
             rb.gravityScale = rb.gravityScale - 2;
         }
-    }
-
-    private bool IsGrounded()
-    {
-        return Physics2D.OverlapCapsule(groundCheck.position, new Vector2(1f, 0.5f), CapsuleDirection2D.Horizontal, 0, groundLayer);
     }
 
     public void PauseMenu(InputAction.CallbackContext context)

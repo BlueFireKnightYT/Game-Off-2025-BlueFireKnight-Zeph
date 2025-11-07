@@ -12,6 +12,7 @@ public class PlayerCollision : MonoBehaviour
     public float NormalGravity;
     public WaterRising waterRising;
     public Countdown countdown;
+    public Countdown2 countdown2;
 
     private void Start()
     {
@@ -20,6 +21,7 @@ public class PlayerCollision : MonoBehaviour
         rb.gravityScale = NormalGravity;
         if (waterRising == null) waterRising = Object.FindAnyObjectByType<WaterRising>();
         if (countdown == null) countdown = Object.FindAnyObjectByType<Countdown>();
+        if (countdown2 == null) countdown2 = Object.FindAnyObjectByType<Countdown2>();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -41,6 +43,7 @@ public class PlayerCollision : MonoBehaviour
             waterRising.speed = waterRising.speed / 2f;
             Invoke("ResumeWater", 10f);
             Destroy(other.gameObject);
+            countdown2.SlowTimeTimer();
 
         }
     }
