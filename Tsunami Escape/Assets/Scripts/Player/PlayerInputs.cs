@@ -31,6 +31,11 @@ public class PlayerInputs : MonoBehaviour
         {
             animator.SetBool("isWalking", false);
         }
+
+        if (rb.linearVelocity.y == 0)
+        {
+            animator.SetBool("Jumping", false);
+        }
     }
 
     private void FixedUpdate()
@@ -59,6 +64,7 @@ public class PlayerInputs : MonoBehaviour
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpH);
             animator.SetBool("isWalking", false);
+            animator.SetBool("Jumping", true);
         }
     }
 
