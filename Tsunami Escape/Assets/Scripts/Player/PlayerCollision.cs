@@ -13,7 +13,6 @@ public class PlayerCollision : MonoBehaviour
     public WaterRising waterRising;
     public Countdown countdown;
     public Countdown2 countdown2;
-    public float coins;
 
     private void Start()
     {
@@ -29,46 +28,57 @@ public class PlayerCollision : MonoBehaviour
     {
         if (other.CompareTag("Coin"))
         {
-            coins = coins + 1;
+            // increment central coin counter
+            if (GameManager.Instance != null)
+                GameManager.Instance.AddCoin(1);
+
             Destroy(other.gameObject);
+            return;
         }
+
         if (other.CompareTag("Water"))
         {
             SceneManager.LoadScene("DefeatScene");
+            return;
         }
+
         if (other.CompareTag("Anti-Gravity Potion"))
         {
             rb.gravityScale = AntiGravity;
             Invoke("ApplyGrav", 10f);
             Destroy(other.gameObject);
-            countdown.AntiGravTimer();
-
+            if (countdown != null) countdown.AntiGravTimer();
+            return;
         }
-        if (other.CompareTag("Slow-Time Potion"))
-        { 
-            waterRising.speed = waterRising.speed / 2f;
-            Invoke("ResumeWater", 10f);
-            Destroy(other.gameObject);
-            countdown2.SlowTimeTimer();
 
+        if (other.CompareTag("Slow-Time Potion"))
+        {
+            if (waterRising != null)
+            {
+                waterRising.speed = waterRising.speed / 2f;
+                Invoke("ResumeWater", 10f);
+            }
+            Destroy(other.gameObject);
+            if (countdown2 != null) countdown2.SlowTimeTimer();
+            return;
         }
     }
 
     private void ResumeWater()
     {
-        waterRising.speed = waterRising.speed * 2;
+        if (waterRising != null)
+            waterRising.speed = waterRising.speed * 2;
     }
 
     private void ApplyGrav()
-    { 
-        if (pi.holdingDown == true)
+    {
+        if (pi != null && pi.holdingDown)
         {
             rb.gravityScale = NormalGravity + 2;
         }
-        else if(pi.holdingDown == false)
+        else
         {
             rb.gravityScale = NormalGravity;
         }
     }
-
 }

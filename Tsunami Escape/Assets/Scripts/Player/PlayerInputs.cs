@@ -1,21 +1,27 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Animations;
+
 public class PlayerInputs : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D rb;
-    [SerializeField] private float speed = 5f;
-    [SerializeField] private float jumpH = 3f;
+    [SerializeField] private float speedBase = 5f;
+    [SerializeField] private float jumpHBase = 3f;
     [SerializeField] LayerMask groundLayer;
     [SerializeField] Transform groundCheck;
     [SerializeField] Animator animator;
     [SerializeField] SpriteRenderer spriterenderer;
+    private float speed;
+    private float jumpH;
     public GameObject pauseMenu;
     public bool holdingDown;
     private PlayerCollision playerCollision;
     private float horizontal;
+
     private void Start()
     {
+        speed = GameManager.Instance.extraSpeed + speedBase;
+        jumpH = GameManager.Instance.extraJumpHeight + jumpHBase;
         holdingDown = false;
         rb = GetComponent<Rigidbody2D>();
     }

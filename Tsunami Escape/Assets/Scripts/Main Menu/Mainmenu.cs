@@ -20,4 +20,27 @@ public class Mainmenu : MonoBehaviour
         pauseMenu.SetActive(false);
         Time.timeScale = 1;
     }
+
+    public void Store()
+    {
+        SceneManager.LoadScene("StoreScene");
+    }
+
+    public void BuySpeed()
+    {
+        if (GameManager.Instance.Coins > 4)
+        {
+            GameManager.Instance.AddCoin(-5);
+            GameManager.Instance.AddSpeed(1);
+        }
+    }
+
+    public void BuyHeight()
+    {
+        if (GameManager.Instance.Coins > 4)
+        {
+            GameManager.Instance.AddCoin(-5);
+            GameManager.Instance.AddJumpHeight(1);
+        }
+    }
 }
