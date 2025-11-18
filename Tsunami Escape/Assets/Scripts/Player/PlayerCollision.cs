@@ -13,6 +13,7 @@ public class PlayerCollision : MonoBehaviour
     public WaterRising waterRising;
     public Countdown countdown;
     public Countdown2 countdown2;
+    public float coins;
 
     private void Start()
     {
@@ -26,6 +27,11 @@ public class PlayerCollision : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (other.CompareTag("Coin"))
+        {
+            coins = coins + 1;
+            Destroy(other.gameObject);
+        }
         if (other.CompareTag("Water"))
         {
             SceneManager.LoadScene("DefeatScene");

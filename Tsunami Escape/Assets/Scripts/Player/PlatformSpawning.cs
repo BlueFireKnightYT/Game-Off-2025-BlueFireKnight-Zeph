@@ -11,6 +11,7 @@ public class PlatformSpawning : MonoBehaviour
     public GameObject platformPrefab;
     public GameObject antiGravPrefab; // prefab for the anti-grav potion
     public GameObject slowMoPrefab;   // prefab for the slow-time potion
+    public GameObject coinPrefab;     // prefab for a coin
     public Transform LevelAdvancer;
     [Header("Spawn Settings")]
     public float minYGap;
@@ -170,6 +171,34 @@ public class PlatformSpawning : MonoBehaviour
                             // ensure the instantiated potion has the expected tag so PlayerCollision detects it
                             potionInstance.tag = chosenTag;
                         }
+                    }
+
+                    // 1-in-10 chance to spawn a coin on top of this platform
+                    if (coinPrefab != null && Random.Range(0, 10) == 0)
+                    {
+                        // determine coin vertical offset from platform top
+                        float platformHalfHeight = 0.5f;
+                        var platCol2 = newplat.GetComponent<Collider2D>();
+                        if (platCol2 != null) platformHalfHeight = platCol2.bounds.extents.y;
+                        else
+                        {
+                            var platR2 = newplat.GetComponent<Renderer>();
+                            if (platR2 != null) platformHalfHeight = platR2.bounds.extents.y;
+                        }
+
+                        // get coin prefab half height
+                        float coinHalfHeight = 0.01f;
+                        var coinCol = coinPrefab.GetComponent<Collider2D>();
+                        if (coinCol != null) coinHalfHeight = coinCol.bounds.extents.y;
+                        else
+                        {
+                            var coinR = coinPrefab.GetComponent<Renderer>();
+                            if (coinR != null) coinHalfHeight = coinR.bounds.extents.y;
+                        }
+
+                        float coinOffset = platformHalfHeight + coinHalfHeight + 0.05f;
+                        Vector3 coinPos = newplat.transform.position + Vector3.up * coinOffset;
+                        GameObject coinInstance = Instantiate(coinPrefab, coinPos, Quaternion.identity);
                     }
                 }
             }
