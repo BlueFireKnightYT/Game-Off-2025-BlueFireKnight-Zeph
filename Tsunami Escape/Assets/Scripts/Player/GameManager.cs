@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     private const string CoinsKey = "PlayerCoins";
     private const string SpeedKey = "PlayerExtraSpeed";
     private const string JumpKey = "PlayerExtraJumpHeight";
+    private const string PotionFKey = "PotionF";
 
     [Header("Player Modifiers")]
     [Tooltip("Temporary or permanent extra speed applied to the player")]
@@ -20,6 +21,9 @@ public class GameManager : MonoBehaviour
 
     [Tooltip("Temporary or permanent extra jump height applied to the player")]
     public float extraJumpHeight = 0f;
+
+    [Tooltip("Frequency of how many potions spawn")]
+    public float PotionFrequency = 0f;
 
     private void Awake()
     {
@@ -34,10 +38,14 @@ public class GameManager : MonoBehaviour
                 Coins = PlayerPrefs.GetInt(CoinsKey, 0);
                 extraSpeed = PlayerPrefs.GetFloat(SpeedKey, extraSpeed);
                 extraJumpHeight = PlayerPrefs.GetFloat(JumpKey, extraJumpHeight);
+                PotionFrequency = PlayerPrefs.GetFloat(PotionFKey, PotionFrequency);
             }
             else
             {
                 Coins = 0;
+                extraSpeed = 0;
+                extraJumpHeight = 0;   
+                PotionFrequency = 0;
             }
         }
         else
@@ -88,6 +96,20 @@ public class GameManager : MonoBehaviour
         extraJumpHeight = amount;
         if (usePlayerPrefs)
             PlayerPrefs.SetFloat(JumpKey, extraJumpHeight);
+    }
+
+    public void AddPotionFrequency(float amount = 1f)
+    {
+        PotionFrequency += amount;
+        if (usePlayerPrefs)
+            PlayerPrefs.SetFloat(PotionFKey, PotionFrequency);
+    }
+
+    public void SetPotionFrequency(float amount)
+    {
+        PotionFrequency = amount;
+        if (usePlayerPrefs)
+            PlayerPrefs.SetFloat(PotionFKey, PotionFrequency);
     }
 
     private void OnApplicationQuit()

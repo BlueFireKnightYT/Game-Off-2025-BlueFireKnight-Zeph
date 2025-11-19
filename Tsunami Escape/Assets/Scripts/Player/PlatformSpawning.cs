@@ -27,11 +27,13 @@ public class PlatformSpawning : MonoBehaviour
     private float lastY;
     private float lastX;
     private List<GameObject> platforms = new List<GameObject>();
+    private float PotionF;
 
     private void Start()
     {
         lastY = Player.position.y;
         lastX = Player.position.x;
+        PotionF = 50 - GameManager.Instance.PotionFrequency;
     }
     private void Update()
     {
@@ -136,7 +138,7 @@ public class PlatformSpawning : MonoBehaviour
                     placed = true;
 
                     // 1-in-50 chance to spawn a potion on top of this platform
-                    if (Random.Range(0, 50) == 0)
+                    if (Random.Range(0, PotionF) == 0)
                     {
                         // pick potion type randomly: 50% anti-grav, 50% slow-time
                         GameObject chosenPotionPrefab = (Random.value < 0.5f) ? antiGravPrefab : slowMoPrefab;
@@ -177,7 +179,7 @@ public class PlatformSpawning : MonoBehaviour
                     if (coinPrefab != null && Random.Range(0, 10) == 0)
                     {
                         // determine coin vertical offset from platform top
-                        float platformHalfHeight = 0.5f;
+                        float platformHalfHeight = 1f;
                         var platCol2 = newplat.GetComponent<Collider2D>();
                         if (platCol2 != null) platformHalfHeight = platCol2.bounds.extents.y;
                         else
@@ -187,7 +189,7 @@ public class PlatformSpawning : MonoBehaviour
                         }
 
                         // get coin prefab half height
-                        float coinHalfHeight = 0.01f;
+                        float coinHalfHeight = 0.1f;
                         var coinCol = coinPrefab.GetComponent<Collider2D>();
                         if (coinCol != null) coinHalfHeight = coinCol.bounds.extents.y;
                         else
@@ -196,7 +198,7 @@ public class PlatformSpawning : MonoBehaviour
                             if (coinR != null) coinHalfHeight = coinR.bounds.extents.y;
                         }
 
-                        float coinOffset = platformHalfHeight + coinHalfHeight + 0.05f;
+                        float coinOffset = platformHalfHeight + coinHalfHeight + 0.5f;
                         Vector3 coinPos = newplat.transform.position + Vector3.up * coinOffset;
                         GameObject coinInstance = Instantiate(coinPrefab, coinPos, Quaternion.identity);
                     }
