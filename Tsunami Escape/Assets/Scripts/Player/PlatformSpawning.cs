@@ -27,13 +27,13 @@ public class PlatformSpawning : MonoBehaviour
     private float lastY;
     private float lastX;
     private List<GameObject> platforms = new List<GameObject>();
-    private float PotionF;
+    private int denom;
 
     private void Start()
     {
+        denom = Mathf.RoundToInt(50f - 5f * GameManager.Instance.PotionFrequency);
         lastY = Player.position.y;
         lastX = Player.position.x;
-        PotionF = 50 - GameManager.Instance.PotionFrequency;
     }
     private void Update()
     {
@@ -138,7 +138,7 @@ public class PlatformSpawning : MonoBehaviour
                     placed = true;
 
                     // 1-in-50 chance to spawn a potion on top of this platform
-                    if (Random.Range(0, PotionF) == 0)
+                    if (Random.Range(0, denom) == 0)
                     {
                         // pick potion type randomly: 50% anti-grav, 50% slow-time
                         GameObject chosenPotionPrefab = (Random.value < 0.5f) ? antiGravPrefab : slowMoPrefab;

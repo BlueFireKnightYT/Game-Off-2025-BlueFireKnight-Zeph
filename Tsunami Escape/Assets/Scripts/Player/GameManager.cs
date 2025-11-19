@@ -112,6 +112,18 @@ public class GameManager : MonoBehaviour
             PlayerPrefs.SetFloat(PotionFKey, PotionFrequency);
     }
 
+    public void ResetSavedModifiers()
+    {
+        PlayerPrefs.DeleteKey(SpeedKey);
+        PlayerPrefs.DeleteKey(JumpKey);
+        PlayerPrefs.DeleteKey(PotionFKey);
+        PlayerPrefs.Save();
+        extraSpeed = 0f;
+        extraJumpHeight = 0f;
+        PotionFrequency = 0f;
+        Debug.Log("GameManager: Modifiers reset.");
+    }
+
     private void OnApplicationQuit()
     {
         if (usePlayerPrefs)

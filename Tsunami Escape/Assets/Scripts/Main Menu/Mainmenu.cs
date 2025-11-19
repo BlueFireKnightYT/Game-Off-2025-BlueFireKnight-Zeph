@@ -43,4 +43,13 @@ public class Mainmenu : MonoBehaviour
             GameManager.Instance.AddJumpHeight(1);
         }
     }
+
+    public void BuyPotionFrequency()
+    {
+        if (GameManager.Instance.Coins > 9)
+        {
+            GameManager.Instance.AddCoin(-10);
+            GameManager.Instance.AddPotionFrequency(1);
+        }
+    }
 }
