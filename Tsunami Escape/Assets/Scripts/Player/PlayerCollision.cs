@@ -13,6 +13,8 @@ public class PlayerCollision : MonoBehaviour
     public WaterRising waterRising;
     public Countdown countdown;
     public Countdown2 countdown2;
+    public Highscore hs;
+    public DistanceBetween heightCalculator;
 
     public float checkDistance = 60f;
     public int rayCount = 3; // number of rays per side
@@ -67,6 +69,11 @@ public class PlayerCollision : MonoBehaviour
 
         if (other.CompareTag("Water"))
         {
+            if (heightCalculator.distanceBetween > PlayerPrefs.GetInt("Highscore"))
+            {
+
+                PlayerPrefs.SetInt("Highscore", Mathf.RoundToInt(heightCalculator.distanceBetween));
+            }
             SceneManager.LoadScene("DefeatScene");
             return;
         }
