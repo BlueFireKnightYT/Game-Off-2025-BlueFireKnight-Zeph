@@ -16,8 +16,9 @@ public class SpriteChanger : MonoBehaviour
     {
         if (sprites == null || sprites.Length == 0) return;
 
-        // Example thresholds for 3 sprites — add more conditions if you add more sprites.
-        if (transform.position.y >= 390 && sprites.Length > 2)
+        if (transform.position.y >= 920 && sprites.Length > 3)
+            spriteRenderer.sprite = sprites[3];
+        else if (transform.position.y >= 390 && sprites.Length > 2)
             spriteRenderer.sprite = sprites[2];
         else if (transform.position.y >= 125 && sprites.Length > 1)
             spriteRenderer.sprite = sprites[1];
