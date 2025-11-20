@@ -1,16 +1,10 @@
 fileFormatVersion: 2
-guid: 9eb671b2e94f49b428215fa413aa3645
+guid: ea6d018d9adf35340b3b6323c2771e6c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4122379518948430546
-    second: Jump upgrade_0
-  - first:
-      213: -3233076156081538575
-    second: Jump upgrade_1
-  - first:
-      213: 8229513977877307599
-    second: Jump upgrade_2
+      213: -8608760665489785528
+    second: JumpUpgradeSprite_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -52,12 +46,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -102,65 +96,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Jump upgrade_0
+      name: JumpUpgradeSprite_0
       rect:
         serializedVersion: 2
-        x: 2
-        y: 12
-        width: 12
-        height: 13
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: e2dabb73bad5ac6c0800000000000000
-      internalID: -4122379518948430546
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Jump upgrade_1
-      rect:
-        serializedVersion: 2
-        x: 9
+        x: 0
         y: 0
-        width: 21
-        height: 30
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -169,30 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1f979f89d5ec123d0800000000000000
-      internalID: -3233076156081538575
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Jump upgrade_2
-      rect:
-        serializedVersion: 2
-        x: 19
-        y: 2
-        width: 12
-        height: 9
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: fc02d7d6c5b153270800000000000000
-      internalID: 8229513977877307599
+      spriteID: 84d302139c9878880800000000000000
+      internalID: -8608760665489785528
       vertices: []
       indices: 
       edges: []
@@ -201,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -211,9 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Jump upgrade_0: -4122379518948430546
-      Jump upgrade_1: -3233076156081538575
-      Jump upgrade_2: 8229513977877307599
+      JumpUpgradeSprite_0: -8608760665489785528
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

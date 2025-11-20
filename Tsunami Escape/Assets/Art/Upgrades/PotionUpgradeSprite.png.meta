@@ -1,13 +1,13 @@
 fileFormatVersion: 2
-guid: 1cb668b87d8518543b558beeba7c5411
+guid: f91c5017a3879784a92d8377f735801f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6895086309985133314
-    second: Potion upgrade_0
+      213: 703521723573483373
+    second: PotionUpgradeSprite_0
   - first:
-      213: 1066809939105013891
-    second: Potion upgrade_1
+      213: -2044286605272323873
+    second: PotionUpgradeSprite_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -103,23 +103,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Potion upgrade_0
+      name: PotionUpgradeSprite_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 32
-        height: 32
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: eed62669512db824692d1b19fa2e719d
-      internalID: -924322990
+      spriteID: d673e59b74963c900800000000000000
+      internalID: 703521723573483373
       vertices: []
       indices: 
       edges: []
@@ -128,7 +128,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: a70cab43738b31f40a3945d45521101a
+    spriteID: f3958ef1a8b172048a9284023617b41b
     internalID: 0
     vertices: []
     indices: 
@@ -138,9 +138,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":32.0,"y":32.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":16.0,"y":16.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      Potion upgrade_0: -924322990
+      PotionUpgradeSprite_0: 703521723573483373
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
