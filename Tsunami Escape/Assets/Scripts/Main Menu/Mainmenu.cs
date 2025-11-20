@@ -11,10 +11,7 @@ public class Mainmenu : MonoBehaviour
 
     public void Start()
     {
-        if(Gm = null)
-        {
             Gm = Object.FindFirstObjectByType<GameManager>();
-        }
     }
     public void Update()
     {       
@@ -45,27 +42,27 @@ public class Mainmenu : MonoBehaviour
 
     public void BuySpeed()
     {
-        if (GameManager.Instance.Coins > 4)
+        if (GameManager.Instance.Coins > SpeedForm -1f)
         {
-            GameManager.Instance.AddCoin(-5);
+            GameManager.Instance.AddCoin(-SpeedForm);
             GameManager.Instance.AddSpeed(1);
         }
     }
 
     public void BuyHeight()
     {
-        if (GameManager.Instance.Coins > 4)
+        if (GameManager.Instance.Coins > JumpForm -1f)
         {
-            GameManager.Instance.AddCoin(-5);
+            GameManager.Instance.AddCoin(-JumpForm);
             GameManager.Instance.AddJumpHeight(1);
         }
     }
 
     public void BuyPotionFrequency()
     {
-        if (GameManager.Instance.Coins > 9)
+        if (GameManager.Instance.Coins > PotionForm -1f)
         {
-            GameManager.Instance.AddCoin(-10);
+            GameManager.Instance.AddCoin(-PotionForm);
             GameManager.Instance.AddPotionFrequency(1);
         }
     }

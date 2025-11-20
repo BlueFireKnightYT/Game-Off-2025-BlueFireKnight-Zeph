@@ -7319,6 +7319,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4074775104747112952, guid: 9b53c74de79e5444c95d348d3f3fbfb5, type: 3}
+      propertyPath: surfboardPrefab
+      value: 
+      objectReference: {fileID: 5821106512675590895, guid: 28af7b25c50d9374bae77a2f6b811ead, type: 3}
+    - target: {fileID: 4074775104747112952, guid: 9b53c74de79e5444c95d348d3f3fbfb5, type: 3}
       propertyPath: PlatformPerSpawn
       value: 30
       objectReference: {fileID: 0}

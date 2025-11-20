@@ -42,10 +42,8 @@ public class PlayerCollision : MonoBehaviour
         if (shouldMove)
         {
             col.enabled = false;
-            // Move the player smoothly toward the target
+            pi.enabled = false;
             transform.position = Vector2.MoveTowards(transform.position, targetPosition, 30f * Time.deltaTime);
-
-            // Stop moving when the target is reached
             if ((Vector2)transform.position == targetPosition)
             {
                 shouldMove = false;
@@ -101,7 +99,9 @@ public class PlayerCollision : MonoBehaviour
 
         if (other.CompareTag("Surf"))
         {
-            targetPosition = new Vector2(-28f, transform.position.y + 20);
+            Destroy(other.gameObject);
+            if(transform.position.x < 0) targetPosition = new Vector2(-28f, transform.position.y + 20);
+            if(transform.position.x > 0) targetPosition = new Vector2(28f, transform.position.y + 20);
             zero = new Vector2(0f, 0f);
             rb.linearVelocity = zero;
             shouldMove = true;
@@ -122,11 +122,12 @@ public class PlayerCollision : MonoBehaviour
 
     private void Ascend()
     {
-        rb.linearVelocityY = 40f;
+        rb.linearVelocityY = 20f;
     }
     private void StopAscending()
     {
         col.enabled = true;
+        pi.enabled = true;
         rb.gravityScale = NormalGravity;
     }
 }
