@@ -3,26 +3,33 @@ using UnityEngine;
 
 public class StoreAmounts : MonoBehaviour
 {
+    [Header("Upgrade Amount UI")]
     public TextMeshProUGUI SpeedText;
     public TextMeshProUGUI JumpHText;
     public TextMeshProUGUI PotionFText;
 
+    [Header("Upgrade Price UI")]
+    public TextMeshProUGUI SpeedPrice;
+    public TextMeshProUGUI JumpHPrice;
+    public TextMeshProUGUI PotionPrice;
+
+    private Mainmenu mainMenu;
+
     void Start()
     {
-        if (SpeedText == null) SpeedText = GetComponent<TextMeshProUGUI>();
-        if (JumpHText == null) JumpHText = GetComponent<TextMeshProUGUI>();
-        if (PotionFText == null) PotionFText = GetComponent<TextMeshProUGUI>();
+        mainMenu = FindFirstObjectByType<Mainmenu>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (GameManager.Instance == null || SpeedText == null) return;
+        // Upgrade amounts
         SpeedText.text = GameManager.Instance.extraSpeed.ToString();
-        if (GameManager.Instance == null || JumpHText == null) return;
         JumpHText.text = GameManager.Instance.extraJumpHeight.ToString();
-        if (GameManager.Instance == null || PotionFText == null) return;
         PotionFText.text = GameManager.Instance.PotionFrequency.ToString();
 
+        // Prices from Mainmenu
+        SpeedPrice.text = mainMenu.SpeedForm.ToString();
+        JumpHPrice.text = mainMenu.JumpForm.ToString();
+        PotionPrice.text = mainMenu.PotionForm.ToString();
     }
 }

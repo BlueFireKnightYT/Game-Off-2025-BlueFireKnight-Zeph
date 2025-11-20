@@ -1704,7 +1704,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 67.67847}
+  m_Offset: {x: -0.11643207, y: 67.67847}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1714,7 +1714,7 @@ BoxCollider2D:
     drawMode: 2
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1271.2192}
+  m_Size: {x: 0.76713586, y: 1271.2192}
   m_EdgeRadius: 0
 --- !u!4 &562880305
 Transform:
@@ -1799,7 +1799,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 999
+  m_SortingOrder: 6
   m_Sprite: {fileID: -5129384428882541821, guid: 7a2a0e2392273e84f93256a8908e3f27, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1984,6 +1984,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Mainmenu
   pauseMenu: {fileID: 640064526}
+  Gm: {fileID: 0}
+  SpeedForm: 0
+  JumpForm: 0
+  PotionForm: 0
 --- !u!1 &651369512
 GameObject:
   m_ObjectHideFlags: 0
@@ -3172,7 +3176,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 6
+  m_SortingOrder: 7
   m_Sprite: {fileID: 6049605792901559095, guid: 630bee74659eec54780a752330beb130, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -3416,7 +3420,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: -16.704346}
+  m_Offset: {x: 0.10064952, y: -16.704346}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -3426,7 +3430,7 @@ BoxCollider2D:
     drawMode: 2
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 969.1422}
+  m_Size: {x: 0.7987009, y: 969.1422}
   m_EdgeRadius: 0
 --- !u!4 &1042269458
 Transform:
@@ -3511,7 +3515,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 999
+  m_SortingOrder: 6
   m_Sprite: {fileID: -5129384428882541821, guid: 7a2a0e2392273e84f93256a8908e3f27, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1

@@ -4,7 +4,21 @@ using UnityEngine.SceneManagement;
 public class Mainmenu : MonoBehaviour
 {
     [SerializeField] private GameObject pauseMenu;
+    public GameManager Gm;
+    public int SpeedForm;
+    public int JumpForm;
+    public int PotionForm;
 
+    public void Start()
+    {
+        Gm = Object.FindFirstObjectByType<GameManager>();
+    }
+    public void Update()
+    {       
+        SpeedForm = Mathf.RoundToInt(4f + Mathf.Pow(2f, 0.5f * Gm.extraSpeed));
+        JumpForm = Mathf.RoundToInt(4f + Mathf.Pow(2f, 0.5f * Gm.extraJumpHeight));
+        PotionForm = Mathf.RoundToInt(9f + Mathf.Pow(2f, Gm.PotionFrequency));
+    }
     public void PlayGame()
     {
         SceneManager.LoadScene("PlayScene");
