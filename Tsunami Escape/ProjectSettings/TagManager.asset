@@ -8,6 +8,8 @@ TagManager:
   - Anti-Gravity Potion
   - Slow-Time Potion
   - Coin
+  - Surf
+  - Wall
   layers:
   - Default
   - TransparentFX

@@ -1,37 +1,66 @@
-using System.Collections;
+using Microsoft.Win32.SafeHandles;
 using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class PlayerCollision : MonoBehaviour
 {
     private Rigidbody2D rb;
     private PlayerInputs pi;
+    private Collider2D col;
     public float AntiGravity;
     public float NormalGravity;
     public WaterRising waterRising;
     public Countdown countdown;
     public Countdown2 countdown2;
 
+    public float checkDistance = 60f;
+    public int rayCount = 3; // number of rays per side
+    public float raySpacing = 0.5f; // vertical spacing between rays
+
+    private Vector2 targetPosition;
+    private bool shouldMove = false;
+    private Vector2 zero;
+
     private void Start()
     {
+        col = GetComponent<Collider2D>();
         rb = GetComponent<Rigidbody2D>();
         pi = GetComponent<PlayerInputs>();
+
         rb.gravityScale = NormalGravity;
+
         if (waterRising == null) waterRising = Object.FindAnyObjectByType<WaterRising>();
         if (countdown == null) countdown = Object.FindAnyObjectByType<Countdown>();
         if (countdown2 == null) countdown2 = Object.FindAnyObjectByType<Countdown2>();
+    }
+
+    private void Update()
+    {
+        if (shouldMove)
+        {
+            col.enabled = false;
+            // Move the player smoothly toward the target
+            transform.position = Vector2.MoveTowards(transform.position, targetPosition, 30f * Time.deltaTime);
+
+            // Stop moving when the target is reached
+            if ((Vector2)transform.position == targetPosition)
+            {
+                shouldMove = false;
+                Invoke("Ascend", 0f);
+                Invoke("StopAscending", 2f);
+                
+            }          
+
+            rb.gravityScale = 0f;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Coin"))
         {
-            // increment central coin counter
-            if (GameManager.Instance != null)
-                GameManager.Instance.AddCoin(1);
-
+            GameManager.Instance?.AddCoin(1);
             Destroy(other.gameObject);
             return;
         }
@@ -47,7 +76,7 @@ public class PlayerCollision : MonoBehaviour
             rb.gravityScale = AntiGravity;
             Invoke("ApplyGrav", 10f);
             Destroy(other.gameObject);
-            if (countdown != null) countdown.AntiGravTimer();
+            countdown?.AntiGravTimer();
             return;
         }
 
@@ -55,30 +84,42 @@ public class PlayerCollision : MonoBehaviour
         {
             if (waterRising != null)
             {
-                waterRising.speed = waterRising.speed / 2f;
+                waterRising.speed /= 2f;
                 Invoke("ResumeWater", 10f);
             }
             Destroy(other.gameObject);
-            if (countdown2 != null) countdown2.SlowTimeTimer();
+            countdown2?.SlowTimeTimer();
             return;
         }
+
+        if (other.CompareTag("Surf"))
+        {
+            targetPosition = new Vector2(-28f, transform.position.y + 20);
+            zero = new Vector2(0f, 0f);
+            rb.linearVelocity = zero;
+            shouldMove = true;
+        }
     }
+
 
     private void ResumeWater()
     {
         if (waterRising != null)
-            waterRising.speed = waterRising.speed * 2;
+            waterRising.speed *= 2f;
     }
 
     private void ApplyGrav()
     {
-        if (pi != null && pi.holdingDown)
-        {
-            rb.gravityScale = NormalGravity + 2;
-        }
-        else
-        {
-            rb.gravityScale = NormalGravity;
-        }
+        rb.gravityScale = (pi != null && pi.holdingDown) ? NormalGravity + 2 : NormalGravity;
+    }
+
+    private void Ascend()
+    {
+        rb.linearVelocityY = 40f;
+    }
+    private void StopAscending()
+    {
+        col.enabled = true;
+        rb.gravityScale = NormalGravity;
     }
 }
