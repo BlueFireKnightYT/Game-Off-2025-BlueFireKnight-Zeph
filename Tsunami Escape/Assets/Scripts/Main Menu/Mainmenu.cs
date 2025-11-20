@@ -66,4 +66,9 @@ public class Mainmenu : MonoBehaviour
             GameManager.Instance.AddPotionFrequency(1);
         }
     }
+
+    public void resetGame()
+    {
+        PlayerPrefs.DeleteAll();
+    }
 }
