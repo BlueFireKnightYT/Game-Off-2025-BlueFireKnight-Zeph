@@ -11,7 +11,10 @@ public class Mainmenu : MonoBehaviour
 
     public void Start()
     {
-        Gm = Object.FindFirstObjectByType<GameManager>();
+        if(Gm = null)
+        {
+            Gm = Object.FindFirstObjectByType<GameManager>();
+        }
     }
     public void Update()
     {       

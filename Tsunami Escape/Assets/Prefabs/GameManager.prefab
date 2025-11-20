@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 441142754716966249}
   - component: {fileID: 3383636335078869179}
+  - component: {fileID: 7949703901827161346}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -47,3 +48,16 @@ MonoBehaviour:
   usePlayerPrefs: 1
   extraSpeed: 0
   extraJumpHeight: 0
+  PotionFrequency: 0
+--- !u!114 &7949703901827161346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3612831793372683223}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd41e1d658da0174fa9445d86615e01f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'

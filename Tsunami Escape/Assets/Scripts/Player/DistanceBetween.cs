@@ -7,6 +7,7 @@ public class DistanceBetween : MonoBehaviour
     public Transform object2;
     public TextMeshProUGUI text;
     public float distanceBetween;
+    
 
     private void Update()
     {

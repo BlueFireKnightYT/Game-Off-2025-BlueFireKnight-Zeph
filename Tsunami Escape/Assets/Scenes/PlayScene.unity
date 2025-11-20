@@ -7392,6 +7392,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ea9a0522a931d94aab5a10e334b0fcc, type: 3}
+--- !u!114 &4588213632407973476 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7949703901827161346, guid: 3ea9a0522a931d94aab5a10e334b0fcc, type: 3}
+  m_PrefabInstance: {fileID: 4588213632407973475}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd41e1d658da0174fa9445d86615e01f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
 --- !u!1001 &7177485570837813971
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7445,9 +7456,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4785048582835653809, guid: 34149b8cd3b8b664d90bdf4cbcb9ac42, type: 3}
+      propertyPath: hs
+      value: 
+      objectReference: {fileID: 4588213632407973476}
+    - target: {fileID: 4785048582835653809, guid: 34149b8cd3b8b664d90bdf4cbcb9ac42, type: 3}
       propertyPath: countdown
       value: 
       objectReference: {fileID: 243098007}
+    - target: {fileID: 4785048582835653809, guid: 34149b8cd3b8b664d90bdf4cbcb9ac42, type: 3}
+      propertyPath: countdown2
+      value: 
+      objectReference: {fileID: 1889175121}
     - target: {fileID: 4785048582835653809, guid: 34149b8cd3b8b664d90bdf4cbcb9ac42, type: 3}
       propertyPath: AntiGravity
       value: 3
@@ -7460,6 +7479,10 @@ PrefabInstance:
       propertyPath: NormalGravity
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 4785048582835653809, guid: 34149b8cd3b8b664d90bdf4cbcb9ac42, type: 3}
+      propertyPath: heightCalculator
+      value: 
+      objectReference: {fileID: 880710752}
     - target: {fileID: 5164373526838644231, guid: 34149b8cd3b8b664d90bdf4cbcb9ac42, type: 3}
       propertyPath: jumpClips.Array.size
       value: 9
