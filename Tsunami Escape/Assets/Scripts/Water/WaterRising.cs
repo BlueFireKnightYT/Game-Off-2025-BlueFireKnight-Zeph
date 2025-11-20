@@ -2,21 +2,25 @@ using UnityEngine;
 
 public class WaterRising : MonoBehaviour
 {
-    [SerializeField] Rigidbody2D rb;
-    public float speed = 3f;
-    public PlayerCollision playerCollision;
     Animator animator;
-    
+    public float initialSpeed = 3f;  // starting speed
+    public float acceleration = 1f;  // how much speed increases per second
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public float trueAcceleration;
+    public float currentSpeed;
+
     void Start()
     {
-        animator = GetComponent<Animator>();
+        trueAcceleration = acceleration * 0.05f;
+        currentSpeed = initialSpeed;
     }
 
-    // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
-        rb.linearVelocity = new Vector2(rb.linearVelocity.x, speed);
+        // Increase speed based on acceleration
+        currentSpeed += trueAcceleration * Time.deltaTime;
+
+        // Move object upward
+        transform.position += Vector3.up * currentSpeed * Time.deltaTime;
     }
 }

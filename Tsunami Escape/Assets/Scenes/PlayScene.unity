@@ -3100,9 +3100,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f541dc3a4653dda428c70231d1e68529, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  rb: {fileID: 1000014211}
-  speed: 3
-  playerCollision: {fileID: 0}
+  initialSpeed: 2
+  acceleration: 1
+  trueAcceleration: 0
+  currentSpeed: 0
 --- !u!50 &1000014211
 Rigidbody2D:
   serializedVersion: 5

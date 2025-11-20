@@ -89,7 +89,7 @@ public class PlayerCollision : MonoBehaviour
         {
             if (waterRising != null)
             {
-                waterRising.speed /= 2f;
+                waterRising.currentSpeed /= 2f;
                 Invoke("ResumeWater", 10f);
             }
             Destroy(other.gameObject);
@@ -112,7 +112,7 @@ public class PlayerCollision : MonoBehaviour
     private void ResumeWater()
     {
         if (waterRising != null)
-            waterRising.speed *= 2f;
+            waterRising.currentSpeed *= 2f;
     }
 
     private void ApplyGrav()
