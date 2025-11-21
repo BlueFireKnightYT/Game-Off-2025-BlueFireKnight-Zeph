@@ -479,7 +479,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4000903292100098090, guid: ec5f7181a3cb6084e87ad20b227efa39, type: 3}
       propertyPath: m_Name
-      value: ExitButton (1)
+      value: ResetPowerupsButton
       objectReference: {fileID: 0}
     - target: {fileID: 4991372086392129573, guid: ec5f7181a3cb6084e87ad20b227efa39, type: 3}
       propertyPath: m_Pivot.x
@@ -571,15 +571,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6062353954877828788, guid: ec5f7181a3cb6084e87ad20b227efa39, type: 3}
       propertyPath: m_text
-      value: Reset Game
+      value: Reset Upgrades
       objectReference: {fileID: 0}
     - target: {fileID: 6062353954877828788, guid: ec5f7181a3cb6084e87ad20b227efa39, type: 3}
       propertyPath: m_fontSize
-      value: 106.95
+      value: 87.49
       objectReference: {fileID: 0}
     - target: {fileID: 6062353954877828788, guid: ec5f7181a3cb6084e87ad20b227efa39, type: 3}
       propertyPath: m_fontSizeBase
-      value: 106.95
+      value: 87.49
       objectReference: {fileID: 0}
     - target: {fileID: 6062353954877828788, guid: ec5f7181a3cb6084e87ad20b227efa39, type: 3}
       propertyPath: m_enableAutoSizing

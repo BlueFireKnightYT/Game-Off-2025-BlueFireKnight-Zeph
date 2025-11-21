@@ -69,6 +69,9 @@ public class Mainmenu : MonoBehaviour
 
     public void resetGame()
     {
-        PlayerPrefs.DeleteAll();
+        PlayerPrefs.DeleteKey("PlayerCoins");
+        PlayerPrefs.DeleteKey("PlayerExtraSpeed");
+        PlayerPrefs.DeleteKey("PlayerExtraJumpHeight");
+        PlayerPrefs.DeleteKey("PotionF");
     }
 }
