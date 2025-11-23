@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     private const string SpeedKey = "PlayerExtraSpeed";
     private const string JumpKey = "PlayerExtraJumpHeight";
     private const string PotionFKey = "PotionF";
+    private const string HealthKey = "Health";
 
     [Header("Player Modifiers")]
     [Tooltip("Temporary or permanent extra speed applied to the player")]
@@ -24,6 +25,9 @@ public class GameManager : MonoBehaviour
 
     [Tooltip("Frequency of how many potions spawn")]
     public float PotionFrequency = 0f;
+
+    [Tooltip("Amount of Health of Player")]
+    public float extraHealth = 5f;
 
     private void Awake()
     {
@@ -39,6 +43,7 @@ public class GameManager : MonoBehaviour
                 extraSpeed = PlayerPrefs.GetFloat(SpeedKey, extraSpeed);
                 extraJumpHeight = PlayerPrefs.GetFloat(JumpKey, extraJumpHeight);
                 PotionFrequency = PlayerPrefs.GetFloat(PotionFKey, PotionFrequency);
+                extraHealth = PlayerPrefs.GetFloat(HealthKey, extraHealth);
             }
             else
             {
@@ -46,6 +51,7 @@ public class GameManager : MonoBehaviour
                 extraSpeed = 0;
                 extraJumpHeight = 0;   
                 PotionFrequency = 0;
+                extraHealth = 5;
             }
         }
         else
@@ -68,7 +74,20 @@ public class GameManager : MonoBehaviour
             PlayerPrefs.SetInt(CoinsKey, Coins);
     }
 
-    // Speed helpers
+    public void AddHealth(int amount = 1)
+    {
+        extraHealth += amount;
+        if (usePlayerPrefs)
+            PlayerPrefs.SetFloat(HealthKey, extraHealth);
+    }
+
+    public void SetHealth(int amount)
+    {
+        extraHealth = amount;
+        if (usePlayerPrefs)
+            PlayerPrefs.SetFloat(HealthKey, extraHealth);
+    }
+
     public void AddSpeed(float amount = 1f)
     {
         extraSpeed += amount;
@@ -83,7 +102,6 @@ public class GameManager : MonoBehaviour
             PlayerPrefs.SetFloat(SpeedKey, extraSpeed);
     }
 
-    // Jump height helpers
     public void AddJumpHeight(float amount = 1f)
     {
         extraJumpHeight += amount;
@@ -117,10 +135,12 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.DeleteKey(SpeedKey);
         PlayerPrefs.DeleteKey(JumpKey);
         PlayerPrefs.DeleteKey(PotionFKey);
+        PlayerPrefs.DeleteKey(HealthKey);
         PlayerPrefs.Save();
         extraSpeed = 0f;
         extraJumpHeight = 0f;
         PotionFrequency = 0f;
+        extraHealth = 5f;
         Debug.Log("GameManager: Modifiers reset.");
     }
 
@@ -131,6 +151,8 @@ public class GameManager : MonoBehaviour
             PlayerPrefs.SetInt(CoinsKey, Coins);
             PlayerPrefs.SetFloat(SpeedKey, extraSpeed);
             PlayerPrefs.SetFloat(JumpKey, extraJumpHeight);
+            PlayerPrefs.SetFloat(PotionFKey, PotionFrequency);
+            PlayerPrefs.SetFloat (HealthKey, extraHealth);
         }
     }
 }

@@ -23,7 +23,7 @@ public class SpawnPlatforms : MonoBehaviour
     [SerializeField] float gapRadius = 5f;
     Vector2 ItemOffset;
     float LastY;
-    List<GameObject> spawnedPlatforms = new List<GameObject>();
+    public List<GameObject> spawnedPlatforms = new List<GameObject>();
     List<GameObject> spawnedPlatformsTemp = new List<GameObject>();
     int Tries;
     void Start()
@@ -43,7 +43,6 @@ public class SpawnPlatforms : MonoBehaviour
         minY = LastY + 4;
         maxY = LastY + MaxYGap;
     }
-
     void SpawnPlatform()
     {
         for (int i  = 0; i < PlatformAmount; i++)

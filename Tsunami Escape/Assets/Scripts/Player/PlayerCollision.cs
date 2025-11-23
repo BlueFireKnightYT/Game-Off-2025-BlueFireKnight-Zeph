@@ -107,6 +107,12 @@ public class PlayerCollision : MonoBehaviour
             rb.linearVelocity = zero;
             shouldMove = true;
         }
+
+        if (other.CompareTag("Piranha"))
+        {
+            pi.BaseHealth = pi.BaseHealth - 1;
+            Debug.Log(pi.BaseHealth);
+        }
     }
 
 

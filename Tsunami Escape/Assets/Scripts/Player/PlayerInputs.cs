@@ -1,12 +1,14 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 using UnityEngine.Animations;
+using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PlayerInputs : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private float speedBase = 5f;
     [SerializeField] private float jumpHBase = 3f;
+    public float BaseHealth;
     [SerializeField] LayerMask groundLayer;
     [SerializeField] Transform groundCheck;
     [SerializeField] Animator animator;
@@ -17,6 +19,7 @@ public class PlayerInputs : MonoBehaviour
     public bool holdingDown;
     private PlayerCollision playerCollision;
     private float horizontal;
+    private ArenaHandler arenaHandler;
 
     private void Start()
     {
@@ -24,6 +27,8 @@ public class PlayerInputs : MonoBehaviour
         jumpH = GameManager.Instance.extraJumpHeight + jumpHBase;
         holdingDown = false;
         rb = GetComponent<Rigidbody2D>();
+        arenaHandler = GetComponent<ArenaHandler>();
+        arenaHandler.enabled = false;
     }
 
     private void Update()
@@ -42,6 +47,9 @@ public class PlayerInputs : MonoBehaviour
         {
             animator.SetBool("Jumping", false);
         }
+
+        if (BaseHealth == 0) SceneManager.LoadScene("DefeatScene");;
+        if (transform.position.y >= 294) arenaHandler.enabled = true;
     }
 
     private void FixedUpdate()

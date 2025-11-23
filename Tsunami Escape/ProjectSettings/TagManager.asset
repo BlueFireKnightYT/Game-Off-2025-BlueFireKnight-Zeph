@@ -10,6 +10,8 @@ TagManager:
   - Coin
   - Surf
   - Wall
+  - Platform
+  - Piranha
   layers:
   - Default
   - TransparentFX
