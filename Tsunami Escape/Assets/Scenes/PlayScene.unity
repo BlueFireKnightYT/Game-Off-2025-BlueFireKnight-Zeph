@@ -3211,6 +3211,34 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &806581075 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5635616160961321889, guid: 9b53c74de79e5444c95d348d3f3fbfb5, type: 3}
+  m_PrefabInstance: {fileID: 3059346848550127714}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &806581077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 806581075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89208c99822c7e9468eaedd5734a6f8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SpawnPlatforms
+  player: {fileID: 438346982}
+  cam: {fileID: 1882866958}
+  PlatformPrefab: {fileID: 143991483369174945, guid: 72ff83866bfcec0449dc51c3c3253eda, type: 3}
+  LowGravPrefab: {fileID: 5040335791888461365, guid: 49bc159e413052941a2e2bd0f12498d7, type: 3}
+  SlowTimePrefab: {fileID: 8868582670280054708, guid: 785df95337c91f04a8f4fa89c93432ba, type: 3}
+  SurfPrefab: {fileID: 5821106512675590895, guid: 28af7b25c50d9374bae77a2f6b811ead, type: 3}
+  CoinPrefab: {fileID: 8170982344445723245, guid: 78ad03033b2ae2f4c973b4fe61acc233, type: 3}
+  MaxYGap: 6
+  AreaWidth: 27
+  PlatformAmount: 5
+  gapRadius: 5
 --- !u!1 &824308361
 GameObject:
   m_ObjectHideFlags: 0
@@ -9916,6 +9944,10 @@ PrefabInstance:
       value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 4074775104747112952, guid: 9b53c74de79e5444c95d348d3f3fbfb5, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4074775104747112952, guid: 9b53c74de79e5444c95d348d3f3fbfb5, type: 3}
       propertyPath: coinPrefab
       value: 
       objectReference: {fileID: 8170982344445723245, guid: 78ad03033b2ae2f4c973b4fe61acc233, type: 3}
@@ -9947,10 +9979,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Platform Spawner
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4074775104747112952, guid: 9b53c74de79e5444c95d348d3f3fbfb5, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5635616160961321889, guid: 9b53c74de79e5444c95d348d3f3fbfb5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 806581077}
   m_SourcePrefab: {fileID: 100100000, guid: 9b53c74de79e5444c95d348d3f3fbfb5, type: 3}
 --- !u!1001 &4588213632407973475
 PrefabInstance:

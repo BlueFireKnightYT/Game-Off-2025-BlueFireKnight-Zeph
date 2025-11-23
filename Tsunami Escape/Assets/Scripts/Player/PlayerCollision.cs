@@ -6,6 +6,7 @@ public class PlayerCollision : MonoBehaviour
     private Rigidbody2D rb;
     private PlayerInputs pi;
     private Collider2D col;
+    private Animator anim;
     public float AntiGravity;
     public float NormalGravity;
     public WaterRising waterRising;
@@ -24,6 +25,7 @@ public class PlayerCollision : MonoBehaviour
 
     private void Start()
     {
+        anim = GetComponent<Animator>();
         col = GetComponent<Collider2D>();
         rb = GetComponent<Rigidbody2D>();
         pi = GetComponent<PlayerInputs>();
@@ -98,6 +100,7 @@ public class PlayerCollision : MonoBehaviour
         if (other.CompareTag("Surf"))
         {
             Destroy(other.gameObject);
+            anim.SetBool("Surfing", true);
             if(transform.position.x < 0) targetPosition = new Vector2(-28f, transform.position.y + 20);
             if(transform.position.x > 0) targetPosition = new Vector2(28f, transform.position.y + 20);
             zero = new Vector2(0f, 0f);
@@ -126,6 +129,7 @@ public class PlayerCollision : MonoBehaviour
     {
         col.enabled = true;
         pi.enabled = true;
+        anim.SetBool("Surfing", false);
         rb.gravityScale = NormalGravity;
     }
 }
