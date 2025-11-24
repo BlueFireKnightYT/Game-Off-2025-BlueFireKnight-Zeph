@@ -19,6 +19,7 @@ public class ArenaHandler : MonoBehaviour
     public int PiranhaMax;
     public float ArenaTimer;
     public GameObject PiranhaGround;
+    public GameObject LootUI;
     void Update()
     {
         if (Above300 == false && transform.position.y > 298 && StoppedArena == false)
@@ -73,7 +74,7 @@ public class ArenaHandler : MonoBehaviour
         wR.enabled = true;
         PS.enabled = true;
         Time.timeScale = 0f;
-
+        LootUI.SetActive(true);
         Instantiate(Surfboard, transform.position, Quaternion.identity);
     }
 }
