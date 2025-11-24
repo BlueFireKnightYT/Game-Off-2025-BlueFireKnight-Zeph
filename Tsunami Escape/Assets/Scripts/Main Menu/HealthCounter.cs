@@ -1,0 +1,28 @@
+using TMPro;
+using UnityEngine;
+
+public class HealthCounter : MonoBehaviour
+{
+    public TextMeshProUGUI HealthText;
+    public TextMeshProUGUI TimerText;
+    public PlayerInputs pi;
+    public ArenaHandler ah;
+    private float RemainingTime;
+
+    private void Start()
+    {
+        RemainingTime = ah.ArenaTimer;
+    }
+    void Update()
+    {
+        if (ah.InArena)
+        {
+            RemainingTime -= Time.deltaTime;
+            int seconds = Mathf.FloorToInt(RemainingTime % 60);
+            TimerText.enabled = true;
+            TimerText.text = seconds.ToString();
+        }
+        else TimerText.enabled = false;
+        HealthText.text = pi.BaseHealth.ToString();
+    }
+}

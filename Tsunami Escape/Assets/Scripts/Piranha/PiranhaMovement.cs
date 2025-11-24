@@ -11,8 +11,6 @@ public class PiranhaMovement : MonoBehaviour
 
     private Rigidbody2D rb;
     private int direction = 1;
-    private float LeftMax;
-    private float RightMax;
 
     private void Start()
     {
@@ -20,8 +18,6 @@ public class PiranhaMovement : MonoBehaviour
         InvokeRepeating(nameof(JumpingPiranha), 0f, 5f);
 
         float startX = transform.position.x;
-        LeftMax = startX + MaxLeft;
-        RightMax = startX + MaxRight; 
 
         myCollider = GetComponent<Collider2D>();
 
@@ -42,21 +38,23 @@ public class PiranhaMovement : MonoBehaviour
     private void FixedUpdate()
     {
         rb.linearVelocity = new Vector2(direction * Speed, rb.linearVelocityY);
-        if (rb.position.x >= RightMax)
+        if (rb.position.x >= MaxRight)
             direction = -1;
-        else if (rb.position.x <= LeftMax)
+        else if (rb.position.x <= MaxLeft)
             direction = 1;
         if (direction == 1)
             GetComponent<SpriteRenderer>().flipX = true;
         else
             GetComponent<SpriteRenderer>().flipX = false;
+        if (Random.Range(0, 100) == 1) direction = 1;
+        if (Random.Range(0, 100) == 1) direction = -1;
     }
 
     void JumpingPiranha()
     {
         if(Random.Range(0, 2) == 0)
         {
-            rb.linearVelocityY = 15f;
+            rb.linearVelocityY = 20f;
         }
     }
 }

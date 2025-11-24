@@ -48,7 +48,7 @@ public class PlayerInputs : MonoBehaviour
             animator.SetBool("Jumping", false);
         }
 
-        if (BaseHealth == 0) SceneManager.LoadScene("DefeatScene");;
+        if (BaseHealth <= 0) SceneManager.LoadScene("DefeatScene");;
         if (transform.position.y >= 294) arenaHandler.enabled = true;
     }
 

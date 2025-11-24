@@ -350,7 +350,7 @@ GameObject:
   - component: {fileID: 793479596804334332}
   - component: {fileID: 5164373526838644231}
   - component: {fileID: 1947172435638831472}
-  - component: {fileID: 1609005904883115308}
+  - component: {fileID: 5335485259853357302}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -855,7 +855,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e36a82f6945bf064d8fcf072589fc548, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
---- !u!114 &1609005904883115308
+--- !u!114 &5335485259853357302
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -872,10 +872,11 @@ MonoBehaviour:
   WaterRB: {fileID: 0}
   wR: {fileID: 0}
   PS: {fileID: 0}
-  LerpSpeed: 3
+  LerpSpeed: 2
   PiranhaPrefab: {fileID: 3521144692940766386, guid: 45b399604e5403544b84b1dce55b6f8e, type: 3}
-  PiranhaMax: 25
+  PiranhaMax: 10
   ArenaTimer: 30
+  PiranhaGround: {fileID: 0}
 --- !u!1 &6936820973016274209
 GameObject:
   m_ObjectHideFlags: 0

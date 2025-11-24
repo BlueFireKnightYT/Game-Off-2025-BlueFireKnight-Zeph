@@ -8,11 +8,25 @@ public class WaterRising : MonoBehaviour
 
     public float trueAcceleration;
     public float currentSpeed;
+    public string[] tagsToIgnore = { "Player", "Platform" };
+    private Collider2D myCollider;
 
     void Start()
     {
         trueAcceleration = acceleration * 0.05f;
         currentSpeed = initialSpeed;
+        foreach (string tagName in tagsToIgnore)
+        {
+            GameObject[] objectsToIgnore = GameObject.FindGameObjectsWithTag(tagName);
+            foreach (GameObject obj in objectsToIgnore)
+            {
+                Collider2D otherCollider = obj.GetComponent<Collider2D>();
+                if (otherCollider != null)
+                {
+                    Physics2D.IgnoreCollision(myCollider, otherCollider);
+                }
+            }
+        }
     }
 
     void Update()

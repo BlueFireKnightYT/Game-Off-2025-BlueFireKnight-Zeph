@@ -7,6 +7,7 @@ public class ArenaHandler : MonoBehaviour
     private Vector3 PiranhaPos;
     private bool StoppedArena;
     private int PiranhaAmount;
+    public bool InArena;
 
     public GameObject Surfboard;
     public GameObject Water;
@@ -17,13 +18,16 @@ public class ArenaHandler : MonoBehaviour
     public GameObject PiranhaPrefab;
     public int PiranhaMax;
     public float ArenaTimer;
+    public GameObject PiranhaGround;
     void Update()
     {
         if (Above300 == false && transform.position.y > 298 && StoppedArena == false)
         {
+            InArena = true;
             Above300 = true;
             wR.enabled = false;
             PS.enabled = false;
+            PiranhaGround.GetComponent<BoxCollider2D>().enabled = true;
             Invoke("EndArena", ArenaTimer);
             InvokeRepeating("SpawnPiranhas", 0f, 0.5f);
             foreach (GameObject obj in PS.spawnedPlatforms)
@@ -36,7 +40,7 @@ public class ArenaHandler : MonoBehaviour
         }
         if (Above300 && !StoppedArena)
         {
-            Vector3 target = new Vector3(Water.transform.position.x, 294f, Water.transform.position.z);
+            Vector3 target = new Vector3(0, 294f, 0);
 
             Water.transform.position = Vector3.Lerp(
                 Water.transform.position,
@@ -65,8 +69,11 @@ public class ArenaHandler : MonoBehaviour
 
     void EndArena()
     {
+        InArena = false;
         wR.enabled = true;
         PS.enabled = true;
+        Time.timeScale = 0f;
+
         Instantiate(Surfboard, transform.position, Quaternion.identity);
     }
 }
