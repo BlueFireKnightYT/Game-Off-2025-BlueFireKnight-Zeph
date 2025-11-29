@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.Animations;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 

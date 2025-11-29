@@ -63,7 +63,6 @@ public class SpawnPlatforms : MonoBehaviour
                 GameObject chosenPotionPrefab = (Random.value < 0.5f) ? LowGravPrefab : SlowTimePrefab;
                 ItemOffset = new Vector2(LastPlatform.transform.position.x, LastPlatform.transform.position.y + 0.5f);
                 Instantiate(chosenPotionPrefab, ItemOffset, Quaternion.identity);
-                Debug.Log("Bitches");
             }
             if(Random.Range(0, 20) == 0)
             {

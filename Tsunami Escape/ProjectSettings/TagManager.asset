@@ -13,6 +13,7 @@ TagManager:
   - Platform
   - Piranha
   - Ground
+  - droplet
   layers:
   - Default
   - TransparentFX

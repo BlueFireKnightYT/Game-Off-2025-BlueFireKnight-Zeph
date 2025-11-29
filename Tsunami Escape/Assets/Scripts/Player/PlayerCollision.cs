@@ -113,6 +113,11 @@ public class PlayerCollision : MonoBehaviour
             pi.BaseHealth = pi.BaseHealth - 1;
             Debug.Log(pi.BaseHealth);
         }
+
+        if (other.CompareTag("droplet"))
+        {
+            pi.BaseHealth -= 1;
+        }
     }
 
 
