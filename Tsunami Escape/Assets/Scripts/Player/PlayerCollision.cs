@@ -22,9 +22,6 @@ public class PlayerCollision : MonoBehaviour
     private Vector2 targetPosition;
     private bool shouldMove = false;
     private Vector2 zero;
-    public int BaseCoinValue;
-    public float SurfDuration;
-    public float SlowTimeAmount;
 
     private void Start()
     {
@@ -51,7 +48,7 @@ public class PlayerCollision : MonoBehaviour
             {
                 shouldMove = false;
                 Invoke("Ascend", 0f);
-                Invoke("StopAscending", SurfDuration);
+                Invoke("StopAscending", 2f);
                 
             }          
 
@@ -63,7 +60,7 @@ public class PlayerCollision : MonoBehaviour
     {
         if (other.CompareTag("Coin"))
         {
-            GameManager.Instance?.AddCoin(BaseCoinValue);
+            GameManager.Instance?.AddCoin(1);
             Destroy(other.gameObject);
             return;
         }
@@ -92,7 +89,7 @@ public class PlayerCollision : MonoBehaviour
         {
             if (waterRising != null)
             {
-                waterRising.currentSpeed /= SlowTimeAmount;
+                waterRising.currentSpeed /= 2f;
                 Invoke("ResumeWater", 10f);
             }
             Destroy(other.gameObject);

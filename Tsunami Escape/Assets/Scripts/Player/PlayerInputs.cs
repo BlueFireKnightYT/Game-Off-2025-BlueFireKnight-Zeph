@@ -19,8 +19,6 @@ public class PlayerInputs : MonoBehaviour
     private PlayerCollision playerCollision;
     private float horizontal;
     private ArenaHandler arenaHandler;
-    public bool DoubleJump;
-    private bool HasDoubleJumped;
 
     private void Start()
     {
@@ -75,17 +73,11 @@ public class PlayerInputs : MonoBehaviour
 
     public void Jump(InputAction.CallbackContext context)
     {
-        if (context.performed && IsGrounded() == true)
+        if (context.performed && IsGrounded())
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpH);
             animator.SetBool("isWalking", false);
             animator.SetBool("Jumping", true);
-            HasDoubleJumped = false;
-        }
-        else if (context.performed && DoubleJump == true && HasDoubleJumped == false)
-        {
-            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpH);
-            HasDoubleJumped = true;
         }
     }
     private bool IsGrounded()
@@ -105,7 +97,6 @@ public class PlayerInputs : MonoBehaviour
             rb.gravityScale = rb.gravityScale - 2;
         }
     }
- 
 
     public void PauseMenu(InputAction.CallbackContext context)
     {

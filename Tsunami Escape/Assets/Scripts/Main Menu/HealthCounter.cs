@@ -8,25 +8,16 @@ public class HealthCounter : MonoBehaviour
     public PlayerInputs pi;
     public ArenaHandler ah;
     private float RemainingTime;
-    private float SecondRemainingTime;
 
     private void Start()
     {
         RemainingTime = ah.ArenaTimer;
-        SecondRemainingTime = ah.SecondArenaTimer;
     }
     void Update()
     {
         if (ah.InArena)
         {
             RemainingTime -= Time.deltaTime;
-            int seconds = Mathf.FloorToInt(RemainingTime % 60);
-            TimerText.enabled = true;
-            TimerText.text = seconds.ToString();
-        }
-        if (ah.InSecondArena)
-        {
-            SecondRemainingTime -= Time.deltaTime;
             int seconds = Mathf.FloorToInt(RemainingTime % 60);
             TimerText.enabled = true;
             TimerText.text = seconds.ToString();

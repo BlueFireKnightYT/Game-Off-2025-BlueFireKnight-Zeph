@@ -1,5 +1,4 @@
 using JetBrains.Annotations;
-using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class SlotsController : MonoBehaviour
@@ -19,17 +18,18 @@ public class SlotsController : MonoBehaviour
     public RectTransform PositionOne;
     public RectTransform PositionTwo;
     public RectTransform PositionThree;
-    public PlayerCollision PC;
-    public PlayerInputs pi;
-    public GameObject LootUI;
+   
 
-    private void Awake()
+    private void Start()
     {
-        Debug.Log("SlotsController Awake running on: " + gameObject.name + ", LootUI = " + LootUI, this);
+        PositionOne.localScale.Set(1, 1, 1);
+        PositionTwo.localScale.Set(1, 1, 1);
+        PositionThree.localScale.Set(1, 1, 1);
+        PositionOne.sizeDelta.Set(100, 100);
+        PositionTwo.sizeDelta.Set(100, 100);
+        PositionThree.sizeDelta.Set(100, 100);
         anim = GetComponent<Animator>();
     }
-
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public void StartSpin()
     {
@@ -82,60 +82,6 @@ public class SlotsController : MonoBehaviour
         if (Z == 5) Instantiate(BoostFive, PositionThree);
         if (Z == 6) Instantiate(BoostSix, PositionThree);
         Debug.Log(Z);
-    }
-
-    public void ClickUpgradeDoubleJump()
-    {
-        Time.timeScale = 1;
-        LootUI = GameObject.Find("ArenaLootMenu");
-        pi = GameObject.Find("Player").GetComponent<PlayerInputs>();
-        pi.DoubleJump = true;
-        Debug.Log("SlotsController Awake running on: " + gameObject.name + ", LootUI = " + LootUI, this);
-        LootUI.SetActive(false);
-    }
-
-    public void ClickUpgradeGlider()
-    {
-        Time.timeScale = 1;
-        LootUI = GameObject.Find("ArenaLootMenu");
-        Debug.Log("SlotsController Awake running on: " + gameObject.name + ", LootUI = " + LootUI, this);
-        LootUI.SetActive(false);
-    }
-
-    public void ClickUpgradeExtraLife()
-    {
-        Time.timeScale = 1;
-        LootUI = GameObject.Find("ArenaLootMenu");
-        LootUI.SetActive(false);
-    }
-
-    public void ClickUpgradePotionStrength()
-    {
-        Time.timeScale = 1;
-        LootUI = GameObject.Find("ArenaLootMenu");
-        Debug.Log("SlotsController Awake running on: " + gameObject.name + ", LootUI = " + LootUI, this);
-        PC = GameObject.Find("Player").GetComponent<PlayerCollision>();
-        PC.SlowTimeAmount = 4;
-        PC.AntiGravity = 2;
-        LootUI.SetActive(false);
-    }
-
-    public void ClickUpgradeSurfboardPlus()
-    {
-        Time.timeScale = 1;
-        LootUI = GameObject.Find("ArenaLootMenu");
-        PC = GameObject.Find("Player").GetComponent<PlayerCollision>();
-        PC.SurfDuration = 4;
-        LootUI.SetActive(false);
-    }
-
-    public void ClickUpgradeCoinsPlus()
-    {
-        Time.timeScale = 1;
-        LootUI = GameObject.Find("ArenaLootMenu");
-        PC = GameObject.Find("Player").GetComponent<PlayerCollision>();
-        Debug.Log("SlotsController Awake running on: " + gameObject.name + ", LootUI = " + LootUI, this);
-        PC.BaseCoinValue = 5;
-        LootUI.SetActive(false);
+        
     }
 }
