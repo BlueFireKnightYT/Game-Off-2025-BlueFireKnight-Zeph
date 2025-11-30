@@ -16,7 +16,7 @@ public class PlayerInputs : MonoBehaviour
     private float jumpH;
     public GameObject pauseMenu;
     public bool holdingDown;
-    private PlayerCollision playerCollision;
+    public PlayerCollision pc;
     private float horizontal;
     private ArenaHandler arenaHandler;
     public bool DoubleJump;
@@ -96,13 +96,18 @@ public class PlayerInputs : MonoBehaviour
     {
         if (context.performed)
         {
-            rb.gravityScale = rb.gravityScale + 2;
+            rb.gravityScale =  pc.NormalGravity + 2;
             holdingDown = true;
         }
-        if (context.canceled)
+        if (context.canceled && pc.AntiGrav == false)
         {
             holdingDown = false;
-            rb.gravityScale = rb.gravityScale - 2;
+            rb.gravityScale = pc.NormalGravity;
+        }
+        if (context.canceled && pc.AntiGrav == true)
+        {
+            holdingDown = false;
+            rb.gravityScale = pc.AntiGravity;
         }
     }
  

@@ -1,5 +1,7 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerCollision : MonoBehaviour
 {
@@ -7,6 +9,7 @@ public class PlayerCollision : MonoBehaviour
     private PlayerInputs pi;
     private Collider2D col;
     private Animator anim;
+    private PlayerInput pI;
     public float AntiGravity;
     public float NormalGravity;
     public WaterRising waterRising;
@@ -25,6 +28,10 @@ public class PlayerCollision : MonoBehaviour
     public int BaseCoinValue;
     public float SurfDuration;
     public float SlowTimeAmount;
+    public bool HasExtraLife;
+    public bool AntiGrav;
+    public RawImage Bite;
+    public RawImage Hurt;
 
     private void Start()
     {
@@ -32,6 +39,7 @@ public class PlayerCollision : MonoBehaviour
         col = GetComponent<Collider2D>();
         rb = GetComponent<Rigidbody2D>();
         pi = GetComponent<PlayerInputs>();
+        pI = GetComponent<PlayerInput>();
 
         rb.gravityScale = NormalGravity;
 
@@ -46,6 +54,7 @@ public class PlayerCollision : MonoBehaviour
         {
             col.enabled = false;
             pi.enabled = false;
+            pI.enabled = false;
             transform.position = Vector2.MoveTowards(transform.position, targetPosition, 30f * Time.deltaTime);
             if ((Vector2)transform.position == targetPosition)
             {
@@ -70,18 +79,27 @@ public class PlayerCollision : MonoBehaviour
 
         if (other.CompareTag("Water"))
         {
-            if (heightCalculator.distanceBetween > PlayerPrefs.GetInt("Highscore"))
+            if(HasExtraLife == false)
             {
+                if (heightCalculator.distanceBetween > PlayerPrefs.GetInt("Highscore"))
+                {
 
-                PlayerPrefs.SetInt("Highscore", Mathf.RoundToInt(heightCalculator.distanceBetween));
+                    PlayerPrefs.SetInt("Highscore", Mathf.RoundToInt(heightCalculator.distanceBetween));
+                }
+                SceneManager.LoadScene("DefeatScene");
             }
-            SceneManager.LoadScene("DefeatScene");
-            return;
+            else if (HasExtraLife)
+            {
+                rb.linearVelocityY = 50f;
+                Invoke("Iframes", 1f);
+            }
+                return;
         }
 
         if (other.CompareTag("Anti-Gravity Potion"))
         {
             rb.gravityScale = AntiGravity;
+            AntiGrav = true;
             Invoke("ApplyGrav", 10f);
             Destroy(other.gameObject);
             countdown?.AntiGravTimer();
@@ -114,12 +132,20 @@ public class PlayerCollision : MonoBehaviour
         if (other.CompareTag("Piranha"))
         {
             pi.BaseHealth = pi.BaseHealth - 1;
+            Color tempColor = Bite.color;
+            tempColor.a = 0.2f;
+            Bite.color = tempColor;
+            Invoke("RemoveBite", 0.2f);
             Debug.Log(pi.BaseHealth);
         }
 
         if (other.CompareTag("droplet"))
         {
             pi.BaseHealth -= 1;
+            Color tempColor = Hurt.color;
+            tempColor.a = 0.2f;
+            Hurt.color = tempColor;
+            Invoke("RemoveHurt", 0.2f);
         }
     }
 
@@ -143,7 +169,27 @@ public class PlayerCollision : MonoBehaviour
     {
         col.enabled = true;
         pi.enabled = true;
+        pI.enabled = true;
         anim.SetBool("Surfing", false);
         rb.gravityScale = NormalGravity;
+    }
+
+    private void Iframes()
+    {
+        HasExtraLife = false;
+    }
+
+    private void RemoveBite()
+    {
+        Color tempColor = Bite.color;
+        tempColor.a = 0f;
+        Bite.color = tempColor;
+    }
+
+    private void RemoveHurt()
+    {
+        Color tempColor = Hurt.color;
+        tempColor.a = 0f;
+        Hurt.color = tempColor;
     }
 }

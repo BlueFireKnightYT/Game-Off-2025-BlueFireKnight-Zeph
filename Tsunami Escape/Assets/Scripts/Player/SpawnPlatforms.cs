@@ -24,7 +24,7 @@ public class SpawnPlatforms : MonoBehaviour
     Vector2 ItemOffset;
     float LastY;
     public List<GameObject> spawnedPlatforms = new List<GameObject>();
-    List<GameObject> spawnedPlatformsTemp = new List<GameObject>();
+    public List<GameObject> spawnedPlatformsTemp = new List<GameObject>();
     int Tries;
     void Start()
     {

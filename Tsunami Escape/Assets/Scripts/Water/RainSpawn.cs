@@ -21,7 +21,7 @@ public class RainSpawn : MonoBehaviour
 
     public bool IsCoolingDown => Time.time < _nextFireTime;
 
-    private void Update()
+    private void SpawnRain()
     {
         if(!IsCoolingDown)
         {
