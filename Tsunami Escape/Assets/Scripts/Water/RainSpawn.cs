@@ -2,15 +2,16 @@ using UnityEngine;
 
 public class RainSpawn : MonoBehaviour
 {
-    public float cooldown = 0.2f;
+    public float Basecooldown = 0.2f;
     private float _nextFireTime;
+    public float ExtraCooldown;
     public GameObject droplet;
     public GameObject player;
     public GameObject spawnedDroplet;
     public Rigidbody2D dropletRB;
     public void StartCooldowm()
     {
-        _nextFireTime = Time.time + cooldown;
+        _nextFireTime = Time.time + Basecooldown + ExtraCooldown;
     }
 
     private void Start()
