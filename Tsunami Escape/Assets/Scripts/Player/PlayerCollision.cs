@@ -159,6 +159,7 @@ public class PlayerCollision : MonoBehaviour
     private void ApplyGrav()
     {
         rb.gravityScale = (pi != null && pi.holdingDown) ? NormalGravity + 2 : NormalGravity;
+        AntiGrav = false;
     }
 
     private void Ascend()
