@@ -90,7 +90,21 @@ public class PlayerInputs : MonoBehaviour
     }
     private bool IsGrounded()
     {
-        return Physics2D.OverlapCapsule(groundCheck.position, new Vector2(1f, 0.5f), CapsuleDirection2D.Horizontal, 0, groundLayer);
+        var hits = Physics2D.OverlapCapsuleAll(
+            groundCheck.position,
+            new Vector2(1f, 0.5f),
+            CapsuleDirection2D.Horizontal,
+            0f,
+            groundLayer
+        );
+
+        foreach (var h in hits)
+        {
+            if (h is BoxCollider2D)   // only accept BoxCollider2D
+                return true;
+        }
+
+        return false;
     }
     public void MoveDown(InputAction.CallbackContext context)
     {
