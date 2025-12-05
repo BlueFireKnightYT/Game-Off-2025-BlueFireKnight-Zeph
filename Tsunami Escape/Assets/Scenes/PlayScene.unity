@@ -5235,7 +5235,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Mainmenu
   pauseMenu: {fileID: 640064526}
-  Gm: {fileID: 0}
+  Gm: {fileID: 4588213632407973479}
   SpeedForm: 0
   JumpForm: 0
   PotionForm: 0
@@ -18892,6 +18892,17 @@ MonoBehaviour:
   player: {fileID: 1227598899}
   spawnedDroplet: {fileID: 0}
   dropletRB: {fileID: 0}
+--- !u!114 &4588213632407973479 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3383636335078869179, guid: 3ea9a0522a931d94aab5a10e334b0fcc, type: 3}
+  m_PrefabInstance: {fileID: 4588213632407973475}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 471430621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 322ec2b1badb83546947e4d0f32bbd5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameManager
 --- !u!1001 &7177485570837813971
 PrefabInstance:
   m_ObjectHideFlags: 0

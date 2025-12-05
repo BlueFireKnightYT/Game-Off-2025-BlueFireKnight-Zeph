@@ -66,12 +66,4 @@ public class Mainmenu : MonoBehaviour
             GameManager.Instance.AddPotionFrequency(1);
         }
     }
-
-    public void resetGame()
-    {
-        PlayerPrefs.DeleteKey("PlayerCoins");
-        PlayerPrefs.DeleteKey("PlayerExtraSpeed");
-        PlayerPrefs.DeleteKey("PlayerExtraJumpHeight");
-        PlayerPrefs.DeleteKey("PotionF");
-    }
 }
